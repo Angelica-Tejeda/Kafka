@@ -93,7 +93,7 @@
 }
 
 .main {
-    background-color: #fff;
+    background-color: #121212;
     /*     position: relative; */
 }
 
@@ -106,7 +106,7 @@
 }
 
 #notifications {
-    background-color: #FFFFFF;
+    background-color: #121212;
     display: block;
     width: 100%;
     position: relative;
