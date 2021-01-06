@@ -8,6 +8,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SideBarComponent } from './components/shared/vista-lectura/side-bar/side-bar.component';
 import { ToolBarComponent } from './components/shared/vista-lectura/tool-bar/tool-bar.component';
+import { TextViewEditorComponent } from './components/shared/vista-lectura/text-view-editor/text-view-editor.component';
+import { VistaLecturaComponent } from './components/shared/vista-lectura/vista-lectura.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ToolBarComponent } from './components/shared/vista-lectura/tool-bar/too
     FooterComponent,
     NavbarComponent,
     SideBarComponent,
-    ToolBarComponent
+    ToolBarComponent,
+    TextViewEditorComponent,
+    VistaLecturaComponent
   ],
   imports: [
     BrowserModule,
