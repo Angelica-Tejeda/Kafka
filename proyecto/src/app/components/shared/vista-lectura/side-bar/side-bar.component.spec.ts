@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeLectorComponent } from './home-lector.component';
+import { SideBarComponent } from './side-bar.component';
 
-describe('HomeLectorComponent', () => {
-  let component: HomeLectorComponent;
-  let fixture: ComponentFixture<HomeLectorComponent>;
+describe('SideBarComponent', () => {
+  let component: SideBarComponent;
+  let fixture: ComponentFixture<SideBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeLectorComponent ]
+      declarations: [ SideBarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeLectorComponent);
+    fixture = TestBed.createComponent(SideBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
