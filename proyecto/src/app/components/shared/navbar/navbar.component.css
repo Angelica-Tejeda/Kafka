@@ -23,3 +23,13 @@
 form > button {
     display: none;
 }
+/*
+.navbar-collapse {
+    flex-grow: inherit;
+}
+/*
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        align-items: center;
+    }
+}*/
