@@ -1,0 +1,25 @@
+.navbar {
+    background-color: #734046;
+}
+
+.navbar-brand {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 40px;
+}
+
+.navbar img {
+    height: 70px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #F2EFEA;
+    font-size: 25px;
+}
+
+.navbar-light .navbar-brand {
+    color: #F2EFEA;
+}
+
+form > button {
+    display: none;
+}
