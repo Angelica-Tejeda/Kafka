@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderLectorComponent } from './header-lector.component';
+import { VistaLecturaComponent } from './vista-lectura.component';
 
-describe('HeaderLectorComponent', () => {
-  let component: HeaderLectorComponent;
-  let fixture: ComponentFixture<HeaderLectorComponent>;
+describe('VistaLecturaComponent', () => {
+  let component: VistaLecturaComponent;
+  let fixture: ComponentFixture<VistaLecturaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderLectorComponent ]
+      declarations: [ VistaLecturaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderLectorComponent);
+    fixture = TestBed.createComponent(VistaLecturaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
