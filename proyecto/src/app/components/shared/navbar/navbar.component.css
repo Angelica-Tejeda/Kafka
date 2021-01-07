@@ -20,16 +20,14 @@
     color: #F2EFEA;
 }
 
+form {
+    width: 70%;
+}
+
 form > button {
     display: none;
 }
-/*
-.navbar-collapse {
-    flex-grow: inherit;
+
+form > input {
+    width: 100%;
 }
-/*
-@media (min-width: 992px) {
-    .navbar-expand-lg .navbar-collapse {
-        align-items: center;
-    }
-}*/
