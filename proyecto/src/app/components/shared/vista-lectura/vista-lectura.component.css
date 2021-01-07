@@ -34,6 +34,7 @@
 .barra-herramientas{
     flex-basis: 7%;
     background-color: #A05344;
+    font-size: 30px;
 }
 .obra{
     flex-basis: 93%;
