@@ -26,6 +26,18 @@
     font-weight: bold;
     font-size: 25px;
 }
+.lista-capitulos {
+    font-size: 16px;
+}
+.lista-capitulos li{
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.lista-capitulos :first-child{
+    border: 3px solid #734046;
+    background-color: #734046;
+    border-radius: 5px;
+}
 .contenedor-obra{
     flex-basis: calc(80%);
     display: flex;
