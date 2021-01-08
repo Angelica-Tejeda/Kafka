@@ -7,6 +7,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/shared/home/home.component';
 import { VistaLecturaComponent } from './components/shared/vista-lectura/vista-lectura.component';
+import { VistaEscrituraComponent } from './components/shared/vista-escritor/vista-escritura.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { VistaLecturaComponent } from './components/shared/vista-lectura/vista-l
     FooterComponent,
     NavbarComponent,
     HomeComponent,
-    VistaLecturaComponent
+    VistaLecturaComponent,
+    VistaEscrituraComponent
   ],
   imports: [
     BrowserModule,

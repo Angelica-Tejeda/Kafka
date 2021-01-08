@@ -80,17 +80,12 @@ textarea.area {
 textarea#capitulo {
     text-align: center;
     font-size: 200%;
-    flex-basis: 9%;
+    flex-basis: calc(9%);
 }
 
 textarea#descripcion {
-    flex-basis: 91%;
+    flex-basis: calc(91%);
     font-size: 100%;
-}
-
-button#boton {
-    background-color: #A05344;
-    border-color: #A05344;
 }
 
 i {
@@ -101,4 +96,13 @@ i {
 
 textarea {
     resize: none;
+}
+
+button {
+    background-color: #734046;
+    border: none;
+}
+
+.datosObra-container {
+    text-align: center;
 }
