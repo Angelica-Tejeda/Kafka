@@ -1,0 +1,108 @@
+.contenedor-flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.sidebar {
+    flex-basis: calc(20%);
+    background-color: #A05344;
+    padding: 15px;
+    height: calc(100vh);
+    border: 3px solid #734046;
+    border-top: none;
+}
+
+.container-volver {
+    font-size: 25px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.lista-capitulos {
+    font-size: 16px;
+}
+
+.lista-capitulos li {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.lista-capitulos :first-child {
+    border: 3px solid #734046;
+    background-color: #734046;
+    border-radius: 5px;
+}
+
+.contenedor-obra {
+    flex-basis: calc(80%);
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-herramientas {
+    flex-basis: 7%;
+    background-color: #A05344;
+    font-size: 30px;
+}
+
+.img-container {
+    border: 5px ridge gray;
+    height: 250px;
+    width: 200px;
+    margin: 25px 0;
+}
+
+.portadaObra {
+    height: 100%;
+    width: 100%;
+}
+
+textarea.area {
+    background-color: #321F28;
+    border-color: #321F28;
+    color: white;
+}
+
+textarea#capitulo {
+    text-align: center;
+    font-size: 200%;
+    flex-basis: calc(9%);
+}
+
+textarea#descripcion {
+    flex-basis: calc(91%);
+    font-size: 100%;
+}
+
+i {
+    display: inline-block;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    background-color: #734046;
+    border: none;
+}
+
+.datosObra-container {
+    text-align: center;
+}
