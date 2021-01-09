@@ -17,6 +17,9 @@
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item my-auto ml-lg-5">
+                <a class="nav-link" [routerLink]="['./']">Escribir</a>
+            </li>
+            <li class="nav-item my-auto ml-lg-5">
                 <a class="nav-link" [routerLink]="['./']">Explora</a>
             </li>
             <li class="nav-item my-auto ml-lg-5">
@@ -24,9 +27,9 @@
             </li>
             <li class="nav-item my-auto ml-lg-5 dropdown">
                 <a class="nav-link" [routerLink]="['./']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="../../../../assets/img/circled.png" alt="Perfil">
+                    <img class="foto-usuario" src="../../../../assets/img/profile-placeholder.png" alt="Perfil">
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" [routerLink]="['./']">Ver perfil</a>
                     <a class="dropdown-item" [routerLink]="['./']">Editar perfil</a>
                     <div class="dropdown-divider"></div>
