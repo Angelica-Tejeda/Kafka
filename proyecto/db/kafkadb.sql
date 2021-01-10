@@ -66,6 +66,7 @@ CREATE TABLE libro
     `idgenero` INTEGER NOT NULL,
     `titulo` varchar(30) NOT NULL,
     `fecha` DATE NOT NULL,
+    `texto` TEXT NOT NULL,
 	PRIMARY KEY(`id`),
     CONSTRAINT `genero_id` FOREIGN KEY (`idgenero`) REFERENCES `genero` (`id`)
 );
