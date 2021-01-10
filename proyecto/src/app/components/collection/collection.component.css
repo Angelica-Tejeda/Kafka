@@ -1,0 +1,53 @@
+h2 {
+  text-transform: uppercase;
+}
+
+.collection-container {
+  margin-top: 1.5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 3%;
+  padding: 1% 6% 3% 6%;
+}
+
+.books-container {
+  padding-top: 2%;
+}
+
+img {
+  width: 100%;
+}
+
+.titulo-libro {
+  font-size: 25px;
+}
+
+p {
+  margin: 0;
+}
+
+.book{
+  color: #F0EDE8;
+  transition: transform .2s;
+}
+
+.book:hover {
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.btn-editar{
+  border: none;
+  color: #F2EFEA;
+  text-emphasis: none;
+  display: inline;
+  text-decoration: none;
+  margin: 0 2% 0 2%;
+  width: 40%;
+  padding-top: 0.95%;
+  padding-bottom: 0.85%;
+  background-color: #E79E4F;
+  position: absolute;
+  right: 5%;
+  bottom: -8%;
+}

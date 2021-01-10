@@ -1,0 +1,82 @@
+<div class="book-form">
+  <p class="description">Descripción de la Obra</p>
+  <form [formGroup]="libroForm" action="" (ngSubmit)="onSubmit(libroForm.value)">
+      <div class="form-group">
+        <div class="row">
+          <div class="titulo-container">
+            <div class="col-sm-8 col-xl-11">
+              <label class="book-label" for="title">Título</label>
+              <input formControlName="titulo" type="text" id="title" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8 col-xl-11">
+            <div class="sipnosis-container">
+              <div class="sipnosis-label">
+                <label for="sipnosis" class="sipnosis-label">Sipnosis</label>
+              </div>
+              <div class="sipnosis-area">
+                <textarea formControlName="sipnosis" name="sipnosis" id="siparea" class="text-sipnosis"></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-11">
+            <div class="genero-container">
+              <label class="genero-label" for="genero">Género</label>
+              <div class="genero-select">
+                <select formControlName="genero"  class="form-group"  name="genero" id="genero" aria-label="Default select example">
+                  <option class="default" hidden selected >Escoge un género</option>
+                  <option *ngFor="let gen of generos" value={{gen.id}}>{{gen.nombre}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-11">
+            <div class="clasificacion-container">
+              <label for="Clasificacion">Clasificación</label>
+              <div *ngFor="let clasi of clasificacion; let i = index" class="clasificacion-radio">
+                <div class="radio-label">
+                  <input formControlName="clasificacion" type="radio"  value={{clasi}}>
+
+                  <label for="clasificacion-check">{{clasi}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-11">
+            <div class="idioma-container">
+              <label for="idioma">Idioma</label>
+              <div class="idioma-select">
+                <select formControlName="idioma" class="form-select"  name="idioma" id="genero" aria-label="Default select example">
+                  <option class="default" hidden selected>Escoge un idioma</option>
+                  <option *ngFor="let idi of idioma" value={{idi}}>{{idi}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="buttons-container">
+
+            <button type="submit" class="botones botonatras" (click)="atras()">Cancelar</button>
+            <button [disabled]="libroForm.invalid" type="submit" class="botones botonseguir">Comenzar</button>
+          </div>
+        </div>
+      </div>
+  </form>
+</div>
+<app-footer></app-footer>
