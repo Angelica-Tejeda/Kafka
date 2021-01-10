@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 import {FormlibroComponent} from './components/formlibro/formlibro.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -9,7 +10,10 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/shared/home/home.component';
 import { VistaLecturaComponent } from './components/shared/vista-lectura/vista-lectura.component';
 import { VistaEscrituraComponent } from './components/shared/vista-escritor/vista-escritura.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import {LibroService} from './services/libro.service'
+import { HttpClientModule } from '@angular/common/http';
+import { CollectionComponent } from './components/collection/collection.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +23,17 @@ import { VistaEscrituraComponent } from './components/shared/vista-escritor/vist
     HomeComponent,
     VistaLecturaComponent,
     VistaEscrituraComponent,
-    FormlibroComponent
+    FormlibroComponent,
+    CollectionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [LibroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

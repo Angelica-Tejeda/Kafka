@@ -1,13 +1,74 @@
+
 .book-form{
-  margin-top: 5%;
+  margin-top: 6%;
   margin-left: 15%;
-  margin-right: 15%;
+  margin-right: 25%;
+  background-color: #734046;
+  padding-left: 1.5%;
+  padding-top: 1%;
+  padding-bottom: 4%;
+
 }
 
-.imagenprt img{
-  margin-right: 50%;
-  margin-left: 40%;
-  height: 13%;
+.titulo-container {
+  margin-top: 1%;
+  margin-bottom: 2.5%;
+}
+.titulo-container input{
+  width: 330%;
+}
+
+.sipnosis-container {
+  margin-top: 1%;
+  margin-bottom: 2.5%;
+}
+
+.genero-container{
+  margin-top: 1%;
+  margin-bottom: 2.5%;
+}
+
+.genero-container label{
+  display: inline;
+  padding-right: 4px;
+  margin-top: 5%;
+
+}
+
+.genero-select select{
+  margin-top: 4px;
+  display: inline;
+  margin-bottom: 5%;
+}
+
+.genero-select{
+  margin-left: 2%;
+  display: inline;
+}
+
+.default{
+  color: black;
+}
+
+select{
+  padding: 6px 12px;
+  color: #F2EFEA;
+  background-color: #607080;
+  border: 1px solid #5c5252;
+  cursor: pointer;
+  border-radius: 3px;
+  appearance: none;
+  background-image: url("../../../assets/img/flecha-hacia-abajo-para-navegar.svg");
+  background-position:right 10px top 50%;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  padding-right: 10px;
+  width: 27%;
+}
+
+select::hover{
+  outline: none;
+  border: 1px solid #381a1a;
 
 }
 
@@ -19,6 +80,12 @@
   resize: none;
   width: 100%;
   height: 140px;
+}
+
+
+.clasificacion-container{
+  margin-top: 1%;
+  margin-bottom: 9%;
 }
 
 .clasificacion-radio{
@@ -55,6 +122,53 @@ cursor: pointer;
 
 }
 
-.idioma-container {
-  margin-top: 50px;
+.idioma-container{
+  margin-top: 1%;
+  margin-bottom: 2.5%;
 }
+
+.idioma-container label{
+  display: inline;
+  padding-right: 4px;
+  margin-top: 5%;
+  width: 60%;
+}
+
+.idioma-select{
+  display: inline;
+  margin-left: 2%;
+}
+
+.botones{
+  border: none;
+  color: #F2EFEA;
+  text-emphasis: none;
+  display: inline;
+  text-decoration: none;
+  margin: 0 2% 0 2%;
+  width: 20%;
+  padding-top: 0.95%;
+  padding-bottom: 0.85%;
+}
+
+.botonseguir{
+  background-color: #E79E4F;
+  position: absolute;
+  right: 1%;
+}
+
+.botonatras{
+  background-color: #CBBCB1;
+  position: absolute;
+  right: 25%;
+}
+
+.buttons-container{
+ position: relative;
+
+}
+
+div.buttons-container{
+  height: 100%;
+}
+

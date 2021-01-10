@@ -31,3 +31,7 @@ form > button {
 form > input {
     width: 100%;
 }
+
+.foto-usuario {
+    border-radius: 50%;
+}

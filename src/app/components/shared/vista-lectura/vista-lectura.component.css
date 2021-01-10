@@ -1,7 +1,7 @@
 .contenedor-flex{
     display: flex;
     justify-content: space-between;
-    width: 100%;  
+    width: 100%;
 }
 .container-fluid{
     padding: 0;
