@@ -3,6 +3,7 @@ import { Genero } from './genero.model';
 import {Location} from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LibroService } from 'src/app/services/libro.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class FormlibroComponent implements OnInit {
 
 
 
-  constructor(private location:Location,private formbuilder:FormBuilder, private libroService:LibroService) { }
+  constructor(private location:Location,private formbuilder:FormBuilder, private libroService:LibroService,
+    private router: Router) { }
 
 
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class FormlibroComponent implements OnInit {
       console.log(data);
       this.libroService.sendLibro(data.titulo,data.sipnosis,data.genero,data.clasificacion,data.idioma);
       this.libroForm.reset();
+      this.router.navigate(['vistaEscritura']);
   }
 
   atras(){

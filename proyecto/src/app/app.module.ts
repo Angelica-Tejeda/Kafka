@@ -13,6 +13,7 @@ import { VistaEscrituraComponent } from './components/shared/vista-escritor/vist
 import { ReactiveFormsModule } from '@angular/forms';
 import {LibroService} from './services/libro.service'
 import { HttpClientModule } from '@angular/common/http';
+import { CollectionComponent } from './components/collection/collection.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     VistaLecturaComponent,
     VistaEscrituraComponent,
-    FormlibroComponent
+    FormlibroComponent,
+    CollectionComponent
   ],
   imports: [
     BrowserModule,

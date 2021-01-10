@@ -4,6 +4,7 @@ import { HomeComponent } from './components/shared/home/home.component';
 import { VistaLecturaComponent } from './components/shared/vista-lectura/vista-lectura.component';
 import { VistaEscrituraComponent } from './components/shared/vista-escritor/vista-escritura.component';
 import { FormlibroComponent } from './components/formlibro/formlibro.component';
+import { CollectionComponent } from './components/collection/collection.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'vistaLectura',     component: VistaLecturaComponent },
   { path: 'vistaEscritura',     component: VistaEscrituraComponent },
   {path: 'formlibro', component: FormlibroComponent },
+  {path: 'coleccion',component: CollectionComponent}
 ];
 
 @NgModule({
