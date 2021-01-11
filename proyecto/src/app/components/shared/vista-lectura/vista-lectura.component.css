@@ -47,10 +47,25 @@
     flex-basis: 7%;
     background-color: #A05344;
     font-size: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.barra-herramientas i {
+    margin: auto 30px;
+}
+
+.titulo-obra {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
 }
 .obra{
+    text-align: justify;
+    font-size: 25px;
     flex-basis: 93%;
     background-color: #321F28;
+    padding: 5% 10%;
 }
 .img-container{
     border: 5px ridge gray;
