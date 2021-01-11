@@ -53,10 +53,16 @@
     flex-direction: column;
 }
 
-.barra-herramientas {
+.barra-herramientas{
     flex-basis: 7%;
     background-color: #A05344;
     font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.barra-herramientas i {
+    margin: auto 30px;
 }
 
 .img-container {
@@ -75,16 +81,17 @@ textarea.area {
     background-color: #321F28;
     border-color: #321F28;
     color: white;
+    outline: none;
 }
 
 textarea#capitulo {
     text-align: center;
     font-size: 200%;
-    flex-basis: calc(9%);
+    flex-basis: calc(15%);
 }
 
 textarea#descripcion {
-    flex-basis: calc(91%);
+    flex-basis: calc(85%);
     font-size: 100%;
 }
 
