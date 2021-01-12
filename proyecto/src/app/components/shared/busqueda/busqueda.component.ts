@@ -20,32 +20,32 @@ export class BusquedaComponent implements OnInit {
   posts = [
     {
       "src": "../../../../assets/img/metamorfosisPortada.jpg",
-      "titulo": "Pato",
+      "titulo": "El principito",
+      "autor": "Antoine de Saint-Exupéry"
+    },
+    {
+      "src": "../../../../assets/img/metamorfosisPortada.jpg",
+      "titulo": "La Metamorfosis",
       "autor": "Franz Kafka"
     },
     {
       "src": "../../../../assets/img/metamorfosisPortada.jpg",
-      "titulo": "Perro",
-      "autor": "Franz Kafka"
+      "titulo": "Drácula",
+      "autor": "Bram Stoker"
     },
     {
       "src": "../../../../assets/img/metamorfosisPortada.jpg",
-      "titulo": "Gato",
-      "autor": "Franz Kafka"
+      "titulo": "El cuervo",
+      "autor": "Edgar Allan Poe"
     },
     {
       "src": "../../../../assets/img/metamorfosisPortada.jpg",
-      "titulo": "Pollo",
-      "autor": "Franz Kafka"
-    },
-    {
-      "src": "../../../../assets/img/metamorfosisPortada.jpg",
-      "titulo": "Caballo",
-      "autor": "Franz Kafka"
+      "titulo": "El resplandor",
+      "autor": "Stephen King"
     },{
       "src": "../../../../assets/img/metamorfosisPortada.jpg",
-      "titulo": "Conejo",
-      "autor": "Franz Kafka"
+      "titulo": "Contacto",
+      "autor": "Carl Sagan"
     }
   ]
 
