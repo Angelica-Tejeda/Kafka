@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {LibroService} from './services/libro.service'
 import { HttpClientModule } from '@angular/common/http';
 import { CollectionComponent } from './components/collection/collection.component';
+import { BusquedaComponent } from './components/shared/busqueda/busqueda.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CollectionComponent } from './components/collection/collection.componen
     VistaLecturaComponent,
     VistaEscrituraComponent,
     FormlibroComponent,
-    CollectionComponent
+    CollectionComponent,
+    BusquedaComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
