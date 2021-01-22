@@ -5,6 +5,7 @@ import { VistaLecturaComponent } from './components/shared/vista-lectura/vista-l
 import { VistaEscrituraComponent } from './components/shared/vista-escritor/vista-escritura.component';
 import { FormlibroComponent } from './components/formlibro/formlibro.component';
 import { CollectionComponent } from './components/collection/collection.component';
+import { BusquedaComponent } from './components/shared/busqueda/busqueda.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'vistaLectura',     component: VistaLecturaComponent },
   { path: ':vistaEscritura/:id',     component: VistaEscrituraComponent },
   {path: 'formlibro', component: FormlibroComponent },
-  {path: 'coleccion',component: CollectionComponent}
+  {path: 'coleccion',component: CollectionComponent},
+  { path: 'busqueda', component: BusquedaComponent}
 ];
 
 @NgModule({
