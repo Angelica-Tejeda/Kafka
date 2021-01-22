@@ -31,10 +31,10 @@ p {
   transition: transform .2s;
 }
 
-.book:hover {
+/* .book:hover {
   text-decoration: none;
   transform: scale(1.1);
-}
+} */
 
 .btn-editar{
   border: none;

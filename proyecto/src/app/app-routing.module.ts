@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'homeLector',             component: HomeComponent },
   { path: 'homeEscritor',           component: HomeComponent },
   { path: 'vistaLectura',     component: VistaLecturaComponent },
-  { path: 'vistaEscritura',     component: VistaEscrituraComponent },
+  { path: ':vistaEscritura/:id',     component: VistaEscrituraComponent },
   {path: 'formlibro', component: FormlibroComponent },
   {path: 'coleccion',component: CollectionComponent}
 ];

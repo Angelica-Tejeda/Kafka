@@ -1,3 +1,4 @@
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vista-lectura.component.css']
 })
 export class VistaLecturaComponent implements OnInit {
-
-  constructor() { }
+  @Input() titulo: string;
+  constructor() {
+    this.titulo="Titulo de prueba";
+  }
 
   ngOnInit(): void {
   }

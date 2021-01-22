@@ -1,28 +1,43 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
+import { Libro } from '../components/collection/libro.model';
+import { SeccionService } from './seccion.service';
 @Injectable({
   providedIn: 'root'
 })
 export class LibroService {
+  libros = [];
 
-  constructor(private http : HttpClient) {
+  constructor(private http : HttpClient, private seccion:SeccionService) {
 
   }
 
-  sendLibro(titulo: string, sipnosis: string, genero: number, clasificacion: string, idioma: string): void{
+  getCollection(){
+    return this.http.get("http://localhost:3007/libro/coleccion");
+  }
+
+
+
+  sendLibro(titulo: string, sipnosis: string, genero: number, clasificacion: string, idioma: string):Observable<any>{
       var libro = {
         titulo: titulo,
-        sipnosis: sipnosis,
+        sinopsis: sipnosis,
         genero: genero,
         clasificacion: clasificacion,
         idioma: idioma
       }
-      this.http.post("http://localhost:3007/libro/newlibro/",libro).subscribe(data => {
-        if(data){
-          console.log("Se envio el libro xD");
-        }else{
-          console.log("No se envio :(");
-        }
-      });
+
+      return this.http.post("http://localhost:3000/api/libro/",libro);
+      // .subscribe(res => {
+      //   if(res){
+      //     let data = JSON.parse(JSON.stringify(res));
+      //     console.log(data.id);
+      //     this.seccion.send_seccion("Borrador",Number(data.id),"","0");
+
+      //   }else{
+      //     console.log("No se envio :(");
+      //   }
+      // });
   }
 }
