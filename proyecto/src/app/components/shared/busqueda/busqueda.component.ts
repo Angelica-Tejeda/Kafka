@@ -56,6 +56,21 @@ export class BusquedaComponent implements OnInit {
       "src": "../../../../assets/img/cianuro.jpg",
       "titulo": "Cianuro Espumoso",
       "autor": "Agatha Cristhie"
+    },
+    {
+      "src": "../../../../assets/img/inferno.jpg",
+      "titulo": "Inferno",
+      "autor": "Dan Brown"
+    },
+    {
+      "src": "../../../../assets/img/psico.jpg",
+      "titulo": "El psicoanalista",
+      "autor": "John Katzenbach"
+    },
+    {
+      "src": "../../../../assets/img/contacto.jpg",
+      "titulo": "Contacto",
+      "autor": "Carl Sagan"
     }
   ]
   /*
