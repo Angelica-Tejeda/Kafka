@@ -21,6 +21,7 @@ a {
     color: #F0EDE8;
     transition: transform .2s;
     text-align: center;
+    margin: 20px 0;
 }
 
 a:hover {
