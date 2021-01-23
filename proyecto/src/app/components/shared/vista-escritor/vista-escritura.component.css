@@ -53,7 +53,7 @@
     flex-direction: column;
 }
 
-.barra-herramientas{
+.barra-herramientas {
     flex-basis: 7%;
     background-color: #A05344;
     font-size: 30px;
@@ -95,11 +95,12 @@ textarea#descripcion {
     font-size: 100%;
 }
 
-i {
+
+/*i {
     display: inline-block;
     margin-left: 2.5%;
     margin-right: 2.5%;
-}
+}*/
 
 textarea {
     resize: none;
@@ -112,4 +113,29 @@ button {
 
 .datosObra-container {
     text-align: center;
+}
+
+.tool-list {
+    display: flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    list-style: none;
+    padding: 0;
+    margin: 1rem;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.tool--btn {
+    display: block;
+    border: none;
+    padding: .5rem;
+    font-size: 20px;
+}
+
+#output {
+    height: 400px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin: 1rem;
+    padding: 1rem;
 }
