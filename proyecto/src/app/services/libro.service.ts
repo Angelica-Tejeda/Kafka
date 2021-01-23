@@ -13,8 +13,8 @@ export class LibroService {
 
   }
 
-  getCollection(){
-    return this.http.get("http://localhost:3007/libro/coleccion");
+  getCollection():Observable<any>{
+    return this.http.get("http://localhost:3000/api/libro");
   }
 
 
@@ -42,7 +42,10 @@ export class LibroService {
   }
 
   get_libro(id:number): Observable<any>{
-    return  this.http.get(`http://localhost:3000/api/libro/${id}`)
+    return  this.http.get(`http://localhost:3000/api/libro/${id}`);
   }
 
+  get_libro_por_nombre(titulo:string): Observable<any>{
+    return  this.http.get(`http://localhost:3000/api/libro/${titulo}`);
+  }
 }

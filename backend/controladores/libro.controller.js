@@ -32,3 +32,23 @@ exports.getLibrobyId=async (req, res) =>{
         res.json(err);
     })
 }
+exports.getLibroby_name=async (req, res) =>{
+    Libro.findAll({
+        where:{
+            titulo: req.params.titulo
+        }
+    }).then(libro=>{
+        res.status(200).json(libro);
+    }).catch(err =>{
+        res.json(err);
+    })
+}
+
+exports.getAllLibros=async (req, res) =>{
+    Libro.findAll().then(libros=>{
+        res.status(200).json(libros);
+
+    }).catch(err =>{
+        res.json(err);
+    })
+}

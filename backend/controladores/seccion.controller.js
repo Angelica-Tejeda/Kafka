@@ -27,3 +27,16 @@ exports.get_all_byid = async (req, res) =>{
         res.json(err);
     })
 }
+
+exports.update_seccion = async (req,res)=>{
+    console.log("updating");
+    Seccion.update(
+        {contenido: req.body.contenido, titulo: req.body.titulo},
+        {where: {libroId:req.params.id}}
+    ).then(seccion=>{
+        res.status(200).json(seccion);
+    }).catch(err =>{
+        res.json(err);
+    })
+
+}
