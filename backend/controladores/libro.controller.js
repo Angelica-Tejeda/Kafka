@@ -32,3 +32,12 @@ exports.getLibrobyId=async (req, res) =>{
         res.json(err);
     })
 }
+
+exports.getAllLibros=async (req, res) =>{
+    Libro.findAll().then(libros=>{
+        res.status(200).json(libros);
+
+    }).catch(err =>{
+        res.json(err);
+    })
+}

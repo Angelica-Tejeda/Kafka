@@ -13,8 +13,8 @@ export class LibroService {
 
   }
 
-  getCollection(){
-    return this.http.get("http://localhost:3000/libro/coleccion");
+  getCollection():Observable<any>{
+    return this.http.get("http://localhost:3000/api/libro");
   }
 
 
