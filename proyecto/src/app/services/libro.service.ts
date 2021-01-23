@@ -14,7 +14,7 @@ export class LibroService {
   }
 
   getCollection(){
-    return this.http.get("http://localhost:3007/libro/coleccion");
+    return this.http.get("http://localhost:3000/libro/coleccion");
   }
 
 
@@ -42,7 +42,7 @@ export class LibroService {
   }
 
   get_libro(id:number): Observable<any>{
-    return  this.http.get(`http://localhost:3000/api/libro/${id}`)
+    return  this.http.get(`http://localhost:3000/api/libro/${id}`);
   }
 
 }

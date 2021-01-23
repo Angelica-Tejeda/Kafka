@@ -34,6 +34,7 @@ export class VistaEscrituraComponent implements OnInit {
               console.log(sec);
               this.secciones.push(new Seccion(sec.titulo,sec.contenido));
               this.tituloarea=sec.titulo;
+              this.contenidoarea=sec.contenido;
             }
           }else{
             console.log("no se trajeron las secciones\n");
@@ -51,6 +52,15 @@ export class VistaEscrituraComponent implements OnInit {
         console.log("No se trajo info");
       }
     })
+  }
+
+  save_libro(contenido:string, titulo:string){
+    console.log("save libro");
+
+    var current = this.router.url;
+    this.router.navigate([current]);
+    this.seccion.update_sect(this.id,titulo,contenido)
+
   }
 
   atras(){

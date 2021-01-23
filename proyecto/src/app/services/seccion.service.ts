@@ -29,4 +29,18 @@ export class SeccionService {
   get_seccion_id(id:number): Observable<any>{
     return  this.http.get(`http://localhost:3000/api/seccion/${id}`);
   }
+
+  update_sect(id:number,titulo:string,contenido:string){
+    var seccion = {
+      titulo:titulo,
+      contenido:contenido
+    }
+    console.log("update_Sect");
+     this.http.patch(`http://localhost:3000/api/seccion/${id}`,seccion).subscribe(data => {
+      if(data){
+        console.log(data);
+
+      }
+    });
+  }
 }

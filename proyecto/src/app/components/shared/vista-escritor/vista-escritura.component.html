@@ -16,7 +16,7 @@
     <!--Fin sidebar-->
     <div class="contenedor-obra">
         <div class="barra-herramientas">
-            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+            <a  routerLink="." (click)="save_libro(contenido.value,titulo.value)"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
             <i class="fa fa-bold" aria-hidden="true"></i>
             <i class="fa fa-italic" aria-hidden="true"></i>
             <i class="fa fa-superscript" aria-hidden="true"></i>
@@ -28,9 +28,9 @@
 
         </div>
 
-        <textarea [value]="tituloarea" class="area" placeholder="Titulo del capítulo." id="capitulo"></textarea>
+        <textarea [value]="tituloarea" #titulo  class="area" placeholder="Titulo del capítulo." id="capitulo"></textarea>
 
-        <textarea [value]="contenidoarea" class="area" placeholder="Comienza tu historia." id="descripcion"></textarea>
+        <textarea [value]="contenidoarea" #contenido class="area" placeholder="Comienza tu historia." id="descripcion"></textarea>
     </div>
     <!--Fin de contenedor barra de herramientas y texto obra-->
 
