@@ -7,4 +7,5 @@ router.get("/:id",controlS.get_all_byid);
 router.patch("/:id",controlS.update_seccion);
 
 
+
 module.exports = router;

@@ -45,4 +45,7 @@ export class LibroService {
     return  this.http.get(`http://localhost:3000/api/libro/${id}`);
   }
 
+  get_libro_por_nombre(titulo:string): Observable<any>{
+    return  this.http.get(`http://localhost:3000/api/libro/${titulo}`);
+  }
 }
