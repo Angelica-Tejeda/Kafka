@@ -20,3 +20,15 @@ exports.libro_create = async (req, res) =>{
     })
 
 }
+
+exports.getLibrobyId=async (req, res) =>{
+    Libro.findAll({
+        where:{
+            id: req.params.id
+        }
+    }).then(libro=>{
+        res.status(200).json(libro);
+    }).catch(err =>{
+        res.json(err);
+    })
+}

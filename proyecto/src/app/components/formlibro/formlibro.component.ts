@@ -45,7 +45,9 @@ export class FormlibroComponent implements OnInit {
           let res = JSON.parse(JSON.stringify(data));
           this.id=Number(res.id);
           console.log(res.id);
+          this.seccion.send_seccion("Borrador",Number(this.id),"","0");
           this.router.navigate(["/vistaEscritura",this.id]);
+
         }
       })
 

@@ -15,3 +15,15 @@ exports.seccion_create = async (req, res) =>{
     })
 
 }
+
+exports.get_all_byid = async (req, res) =>{
+    Seccion.findAll({
+        where:{
+            libroId: req.params.id,
+        }
+    }).then(secciones=>{
+        res.status(200).json(secciones);
+    }).catch(err =>{
+        res.json(err);
+    })
+}
