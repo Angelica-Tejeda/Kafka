@@ -56,7 +56,12 @@ export class BusquedaComponent implements OnInit {
       "src": "../../../../assets/img/cianuro.jpg",
       "titulo": "Cianuro Espumoso",
       "autor": "Agatha Cristhie"
-    }
+    },
+    {
+      "src": "../../../../assets/img/estudio-en-escarlata.jpg",
+      "titulo": "Estudio en escarlata",
+      "autor": "Arthur Conan Doyle"
+    },
   ]
   /*
     busqueda(){

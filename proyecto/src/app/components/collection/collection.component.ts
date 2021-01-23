@@ -13,11 +13,10 @@ export class CollectionComponent implements OnInit {
 
   constructor(private router: Router, private libros:LibroService) {
 
-   }
-
+  }
 
   ngOnInit(): void {
-    this.libros.getCollection().subscribe((res)=>{
+    this.libros.getCollection().subscribe((res:any)=>{
       if(res){
         for(let libro of res){
           console.log(libro.titulo,libro.genero,libro.clasificacion);
