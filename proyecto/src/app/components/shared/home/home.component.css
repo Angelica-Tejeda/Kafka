@@ -3,13 +3,14 @@ h2 {
 }
 
 img {
-    width: 70%;
+    height: 290px;
     border: 2px solid #F2EFEA;
 }
 
 .titulo-libro {
     font-size: 20px;
     font-weight: bold;
+    margin-top: 3px;
 }
 
 p {
@@ -20,6 +21,7 @@ a {
     color: #F0EDE8;
     transition: transform .2s;
     text-align: center;
+    margin: 20px 0;
 }
 
 a:hover {

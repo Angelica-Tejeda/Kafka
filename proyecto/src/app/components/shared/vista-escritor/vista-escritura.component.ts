@@ -67,4 +67,24 @@ export class VistaEscrituraComponent implements OnInit {
     this.location.back();
   }
 
+  prueba(){
+    let output = document.getElementById('output');
+    let buttons: any = document.getElementsByClassName('tool--btn');
+    for (let btn of buttons) {
+      btn.addEventListener('click', () => {
+        let cmd = btn.dataset['command'];
+        if(cmd === 'createlink') {
+          let url: string | null | undefined;
+          url = prompt("Enter the link here: ", "http:\/\/");
+          if(url == null){
+            url = undefined;
+          }
+          document.execCommand(cmd, false, url);
+        } else {
+          document.execCommand(cmd, false, undefined);
+        }
+      })
+    }
+  }
+
 }

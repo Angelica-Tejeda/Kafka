@@ -5,9 +5,11 @@
         <div class="container">
             <div class="img-container"><img class='portadaObra' src="../../../../assets/img/metamorfosisPortada.jpg" alt="Portada de la obra"></div>
             <div class="datosObra-container">
-                <p class="titulo">{{titulolibro}}</p>
-                <ul *ngFor="let seccion of secciones" class="lista-capitulos">
-                    <li>{{seccion.titulo}}</li>
+                <p class="titulo">Titulo de Libro</p>
+                <ul class="lista-capitulos">
+                    <li>Capitulo 1: Lorem Ipsum</li>
+                    <li>Capitulo 2: Lorem Ipsum</li>
+                    <li>Capitulo 3: Lorem Ipsum</li>
                 </ul>
                 <button type="submit" class="btn btn-danger">Publicar</button>
             </div>
@@ -16,7 +18,7 @@
     <!--Fin sidebar-->
     <div class="contenedor-obra">
         <div class="barra-herramientas">
-            <a  routerLink="." (click)="save_libro(contenido.value,titulo.value)"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+            <a routerLink="." (click)="save_libro(contenido.value,titulo.value)"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
             <i class="fa fa-bold" aria-hidden="true"></i>
             <i class="fa fa-italic" aria-hidden="true"></i>
             <i class="fa fa-superscript" aria-hidden="true"></i>
@@ -28,10 +30,54 @@
 
         </div>
 
-        <textarea [value]="tituloarea" #titulo  class="area" placeholder="Titulo del capítulo." id="capitulo"></textarea>
+        <textarea [value]="tituloarea" #titulo class="area" placeholder="Titulo del capítulo." id="capitulo"></textarea>
 
         <textarea [value]="contenidoarea" #contenido class="area" placeholder="Comienza tu historia." id="descripcion"></textarea>
     </div>
     <!--Fin de contenedor barra de herramientas y texto obra-->
-
 </div>
+<!--<div class="toolbar" (click)="prueba()">
+    <ul class="tool-list">
+        <li class="tool">
+            <button type="button" data-command='justifyLeft' class="tool--btn">
+                <i class=' fas fa-align-left'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command='justifyCenter' class="tool--btn">
+                <i class=' fas fa-align-center'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="bold" class="tool--btn">
+                <i class=' fas fa-bold'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="italic" class="tool--btn">
+                <i class=' fas fa-italic'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="underline" class="tool--btn">
+                <i class=' fas fa-underline'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="insertOrderedList" class="tool--btn">
+                <i class=' fas fa-list-ol'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="insertUnorderedList" class="tool--btn">
+                <i class=' fas fa-list-ul'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="createlink" class="tool--btn">
+                <i class=' fas fa-link'></i>
+            </button>
+        </li>
+    </ul>
+</div>
+<div id="output" contenteditable="true"></div>-->

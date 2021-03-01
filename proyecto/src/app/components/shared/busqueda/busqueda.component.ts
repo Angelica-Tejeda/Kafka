@@ -58,6 +58,11 @@ export class BusquedaComponent implements OnInit {
       "autor": "Agatha Cristhie"
     },
     {
+      "src": "../../../../assets/img/estudio-en-escarlata.jpg",
+      "titulo": "Estudio en escarlata",
+      "autor": "Arthur Conan Doyle"
+    },
+    {
       "src": "../../../../assets/img/inferno.jpg",
       "titulo": "Inferno",
       "autor": "Dan Brown"

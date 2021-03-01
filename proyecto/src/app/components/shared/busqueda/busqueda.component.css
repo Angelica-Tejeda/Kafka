@@ -2,13 +2,19 @@ h2 {
     text-transform: uppercase;
 }
 
+/*
+.titulo-div {
+    margin: 0 auto;
+    width: 90%;
+}*/
+
 img {
-    width: 70%;
+    height: 290px;
     border: 2px solid #F2EFEA;
 }
 
 form {
-    width: 90%;
+    width: 100%;
 }
 
 form > button {
@@ -18,6 +24,7 @@ form > button {
 .titulo-libro {
     font-size: 20px;
     font-weight: bold;
+    margin-top: 3px;
 }
 
 p {
@@ -28,7 +35,7 @@ a {
     color: #F0EDE8;
     transition: transform .2s;
     text-align: center;
-    margin: 15px 0;
+    margin: 20px 0;
 }
 
 a:hover {
