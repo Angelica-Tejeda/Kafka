@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
 
 app.use("/api/seccion",require("./rutas/seccion.routes"));
 app.use("/api/libro",require("./rutas/libro.routes"));
+app.use("/api/login",require("./rutas/auth.routes"));
 
 
 //ejecucion de server

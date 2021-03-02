@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CollectionComponent } from './components/collection/collection.component';
 import { BusquedaComponent } from './components/shared/busqueda/busqueda.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     FormlibroComponent,
     CollectionComponent,
     BusquedaComponent,
-    FilterPipe
+    FilterPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
