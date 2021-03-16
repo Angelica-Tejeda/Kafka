@@ -271,28 +271,34 @@
             <input type="tel" placeholder="Número telefónico" />
         </section>
 
-    <section>
-        <p>¿Quiero ser...?</p>
-        <div class="radio-contenedor">
-            <div class="radio">
-                <input class="radio-input" type="radio" id="lector" name="tipoUser" value="lector">
-                <label for="lector">Lector</label>
+        <section>
+            <p>Cuenta</p>
+            <label for="user">Usuario:</label>
+            <input type="text" id='user' name="user" placeholder="Ingrese su nombre de usuario" />
+            <label for="pass">Contraseña:</label>
+            <input type="password" id="pass" name="pass" placeholder="Ingrese su contraseña" />
+            <label for="passRep">Verifique su contraseña:</label>
+            <input type="password" id="passRep" name="passRep" placeholder="Ingrese nuevamente su contraseña" />
+        </section>
+
+        <section>
+            <p>¿Quiero ser...?</p>
+            <div class="radio-contenedor">
+                <div class="radio">
+                    <input class="radio-input" type="radio" id="lector" name="tipoUser" value="lector">
+                    <label for="lector">Lector</label>
+                </div>
+                <div class="radio">
+                    <input class="radio-input" type="radio" id="escritor" name="tipoUser" value="escritor">
+                    <label for="escritor">Escritor</label>
+                </div>
             </div>
-            <div class="radio">
-                <input class="radio-input" type="radio" id="escritor" name="tipoUser" value="escritor">
-                <label for="escritor">Escritor</label>
-            </div>
+
+        </section>
+        <div>
+            <div class="button" id="prev">&larr; Atrás</div>
+            <div class="button" id="next">Siguiente &rarr;</div>
+            <div class="button" id="submit">Registrarme</div>
         </div>
-
-    </section>
-    <div>
-        <div class="button" id="prev">&larr; Atrás</div>
-        <div class="button" id="next">Siguiente &rarr;</div>
-        <div class="button" id="submit">Registrarme</div>
-    </div>
-
-        <div class="button" id="prev">&larr; Atrás</div>
-        <div class="button" id="next">Siguiente &rarr;</div>
-        <div class="button" type="submit" id="submit">Registrarme</div>
     </form>
 </div>
