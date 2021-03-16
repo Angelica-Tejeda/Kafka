@@ -9,7 +9,10 @@ export class LoginService {
 
   constructor(private http : HttpClient) { }
 
-  getCollection(user:String):Observable<any>{
-    return this.http.get(`http://localhost:3000/api/libro/${user}`);
+  getUser(user:String):Observable<any>{
+    return this.http.get(`http://localhost:3000/api/login/${user}`);
   }
+  /*register():Observable<any>{
+    return this.http.post("http://localhost:3000/api/login/register");
+  }*/
 }

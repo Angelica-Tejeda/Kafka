@@ -44,7 +44,7 @@ h1 {
   fill: white;
 }
 
-.button {
+.button, button {
   background: #734046;
   border-radius: 5px;
   padding: 15px 25px;

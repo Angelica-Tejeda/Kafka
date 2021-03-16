@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {LoginService} from 'src/app/services/login.service'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth:LoginService) { }
 
   ngOnInit(): void {
     $(document).ready(function() {
@@ -109,7 +109,9 @@ export class RegisterComponent implements OnInit {
       });
 
       
-    
+      $(".button").on('click',()=>{
+
+      })
   }
 
 }
