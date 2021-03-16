@@ -17,6 +17,7 @@ import { CollectionComponent } from './components/collection/collection.componen
 import { BusquedaComponent } from './components/shared/busqueda/busqueda.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginComponent } from './components/login/login.component';
     CollectionComponent,
     BusquedaComponent,
     FilterPipe,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

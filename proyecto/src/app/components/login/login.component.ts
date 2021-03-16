@@ -12,7 +12,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     $(function() {
-
+      let step2=$('.step2');
+      step2.hide();
       $(".input input").focus(function() {
    
          $(this).parent(".input").each(function() {
@@ -130,7 +131,12 @@ export class LoginComponent implements OnInit {
          }
    
       });
-   
+      let step1= $('.step1');
+      let siguiente = $(".button.ov1");
+      siguiente.on('click',()=>{
+         step1.hide();
+         step2.show();
+      })
    });
   }
 

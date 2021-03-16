@@ -54,6 +54,7 @@
   letter-spacing: 2px;
   color: #A05344;
   position: relative;
+  text-align: center;
 }
 
 .title:before {
