@@ -1,4 +1,9 @@
 .hero{
+    background-image: url(../../../../assets/img/library-banner.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(20px);
     height: 400px;
     width: 100%;
     display: flex;
