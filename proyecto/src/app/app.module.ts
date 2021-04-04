@@ -18,6 +18,10 @@ import { BusquedaComponent } from './components/shared/busqueda/busqueda.compone
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/user-profile/profile/profile.component';
+import { PersonalInfoComponent } from './components/user-profile/personal-info/personal-info.component';
+import { AboutMeComponent } from './components/user-profile/about-me/about-me.component';
+import { SubscriptionsComponent } from './components/user-profile/subscriptions/subscriptions.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { RegisterComponent } from './components/register/register.component';
     BusquedaComponent,
     FilterPipe,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent,
+    PersonalInfoComponent,
+    AboutMeComponent,
+    SubscriptionsComponent
   ],
   imports: [
     BrowserModule,

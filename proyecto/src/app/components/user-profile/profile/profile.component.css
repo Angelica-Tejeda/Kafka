@@ -1,0 +1,32 @@
+.hero{
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    
+    
+}
+.profile-pic{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin-top: 25px;
+   
+}
+.profile-pic img{
+    height: 200px;
+    width: 200px;
+    padding: 20px;
+}
+.profile-pic p{
+    flex-basis: 40%;
+    font-weight: bold;
+}
+.stats{
+    flex-basis: 50%;
+}

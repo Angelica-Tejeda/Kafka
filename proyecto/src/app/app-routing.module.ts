@@ -8,6 +8,7 @@ import { CollectionComponent } from './components/collection/collection.componen
 import { BusquedaComponent } from './components/shared/busqueda/busqueda.component';
 import{ LoginComponent} from "./components/login/login.component";
 import{RegisterComponent} from './components/register/register.component';
+import {ProfileComponent} from "./components/user-profile/profile/profile.component";
 import { from } from 'rxjs';
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'coleccion',component: CollectionComponent},
   { path: 'busqueda', component: BusquedaComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: 'register', component: RegisterComponent},
+  { path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({
