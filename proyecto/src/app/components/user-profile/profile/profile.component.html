@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="hero">
     <div class="profile-pic">
         <img src="{{profilePic}}" alt="Imagen de Perfil">
@@ -9,13 +10,13 @@
 </div>
 <section class="info">
     <div class="nav">
-        <div class="nav-option hover active" (click)="hide()">Sobre mí</div>
-        <div class="nav-option hover">Información Personal</div>
-        <div class="nav-option hover">Suscripciones</div>
+        <div class="nav-option hover active" (click)="showAboutMe()">Sobre mí</div>
+        <div class="nav-option hover" (click)="showPersonalInf()">Información Personal</div>
+        <div class="nav-option hover" (click)="showSubs()">Suscripciones</div>
     </div>
     <div class="tabs">
-        <app-about-me></app-about-me>
-        <app-personal-info class="hidden"></app-personal-info>
-        <app-subscriptions class="hidden"></app-subscriptions>
+        <app-about-me id="tab1"></app-about-me>
+        <app-personal-info id="tab2" class="hidden"></app-personal-info>
+        <app-subscriptions id="tab3" class="hidden"></app-subscriptions>
     </div>
 </section>

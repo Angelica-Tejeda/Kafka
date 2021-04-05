@@ -23,23 +23,23 @@ export class ProfileComponent implements OnInit {
   }
 
   showAboutMe() {
-    $("#tab1").removeClass("no-mostrar")
-    $("#tab2").addClass("no-mostrar")
-    $("#tab3").addClass("no-mostrar")
+    $("#tab1").removeClass("hidden")
+    $("#tab2").addClass("hidden")
+    $("#tab3").addClass("hidden")
     console.log("clic about me")
   }
 
   showPersonalInf() {
-    $("#tab1").addClass("no-mostrar")
-    $("#tab2").removeClass("no-mostrar")
-    $("#tab3").addClass("no-mostrar")
+    $("#tab1").addClass("hidden")
+    $("#tab2").removeClass("hidden")
+    $("#tab3").addClass("hidden")
     console.log("clic personal")
   }
 
   showSubs() {
-    $("#tab1").addClass("no-mostrar")
-    $("#tab2").addClass("no-mostrar")
-    $("#tab3").removeClass("no-mostrar")
+    $("#tab1").addClass("hidden")
+    $("#tab2").addClass("hidden")
+    $("#tab3").removeClass("hidden")
     console.log("clic subs")
   }
 
