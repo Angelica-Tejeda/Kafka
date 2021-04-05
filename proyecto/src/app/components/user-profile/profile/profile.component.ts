@@ -18,6 +18,9 @@ export class ProfileComponent implements OnInit {
     this.profilePic="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/768px-Circle-icons-profile.svg.png"
     this.username="Angélica Tejeda"
   }
+  hide(){
+    
+  }
 
   showAboutMe() {
     $("#tab1").removeClass("no-mostrar")

@@ -9,8 +9,13 @@
 </div>
 <section class="info">
     <div class="nav">
-        <div class="nav-option"><app-about-me></app-about-me></div>
-        <div class="nav-option"><app-personal-info></app-personal-info></div>
-        <div class="nav-option"><app-subscriptions></app-subscriptions></div>
+        <div class="nav-option hover active" (click)="hide()">Sobre mí</div>
+        <div class="nav-option hover">Información Personal</div>
+        <div class="nav-option hover">Suscripciones</div>
+    </div>
+    <div class="tabs">
+        <app-about-me></app-about-me>
+        <app-personal-info class="hidden"></app-personal-info>
+        <app-subscriptions class="hidden"></app-subscriptions>
     </div>
 </section>
