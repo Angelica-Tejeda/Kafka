@@ -19,4 +19,25 @@ export class ProfileComponent implements OnInit {
     this.username="Angélica Tejeda"
   }
 
+  showAboutMe() {
+    $("#tab1").removeClass("no-mostrar")
+    $("#tab2").addClass("no-mostrar")
+    $("#tab3").addClass("no-mostrar")
+    console.log("clic about me")
+  }
+
+  showPersonalInf() {
+    $("#tab1").addClass("no-mostrar")
+    $("#tab2").removeClass("no-mostrar")
+    $("#tab3").addClass("no-mostrar")
+    console.log("clic personal")
+  }
+
+  showSubs() {
+    $("#tab1").addClass("no-mostrar")
+    $("#tab2").addClass("no-mostrar")
+    $("#tab3").removeClass("no-mostrar")
+    console.log("clic subs")
+  }
+
 }
