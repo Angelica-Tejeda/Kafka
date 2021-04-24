@@ -1,8 +1,8 @@
 
 .border-cont {
   border: 1px solid white;
+  padding: 15px;
   border-radius: 5px;
-
 }
 
 .aboutMe {
@@ -11,7 +11,22 @@
 }
 
 .description {
+  height: 220px;
   flex-basis: calc(55% - 15px);
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutMe-bio {
+  width: 90%;
+  height: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  resize: none;
+  color: #F0EDE8;
+  background-color: #121212;
+  border: none;
 }
 
 .moreInfo {

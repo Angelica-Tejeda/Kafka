@@ -1,8 +1,24 @@
-<section class="aboutMe">
+<section>
+    <div class="aboutMe">
         <div class="description border-cont">
-            <button class="orange-button"> Añadir una descripcion</button>
+            <h4>Mi bio</h4>
+            <textarea class="aboutMe-bio" name="aboutMe-bio" disabled id="aboutMe-bio" maxlength="500" placeholder="¡Cuéntale al mundo sobre tí!">{{bio}}</textarea>
+            <div id="edit-button">
+                <button (click)="editBio()" class="orange-button">Editar</button>
+            </div>
+            <div id="save-cancel-button" class="not-display">
+                <button (click)="saveBio()" class="orange-button">Guardar</button>
+                <button (click)="cancelBio()" class="orange-button">Cancelar</button>
+            </div>
+            
         </div>
         <div class="moreInfo border-cont">
-
+            <h4>Más Información</h4>
+            <p><span>Miembro desde: </span>{{registerDate}}</p>
+            <p><span>Géneros favoritos: </span></p>
+            <ul>
+                <li *ngFor="let favGenre of favGenres">{{favGenre}}</li>
+            </ul>
         </div>
+    </div>
 </section>
