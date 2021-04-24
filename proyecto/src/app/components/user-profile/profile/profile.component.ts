@@ -37,7 +37,6 @@ export class ProfileComponent implements OnInit {
     $("#nav-op-1").addClass("active")
     $("#nav-op-2").removeClass("active")
     $("#nav-op-3").removeClass("active")
-    console.log("clic about me")
   }
 
   showPersonalInf() {
@@ -47,7 +46,6 @@ export class ProfileComponent implements OnInit {
     $("#nav-op-1").removeClass("active")
     $("#nav-op-2").addClass("active")
     $("#nav-op-3").removeClass("active")
-    console.log("clic personal")
   }
 
   showSubs() {
@@ -57,7 +55,6 @@ export class ProfileComponent implements OnInit {
     $("#nav-op-1").removeClass("active")
     $("#nav-op-2").removeClass("active")
     $("#nav-op-3").addClass("active")
-    console.log("clic subs")
   }
 
 }
