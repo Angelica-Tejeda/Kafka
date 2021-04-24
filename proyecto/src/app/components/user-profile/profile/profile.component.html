@@ -2,21 +2,36 @@
 <div class="hero">
     <div class="profile-pic">
         <img src="{{profilePic}}" alt="Imagen de Perfil">
-        <p>{{username}}</p>
+        <p class="username">{{username}}</p>
     </div>
     <div class="stats">
-
+        <div class="stat">
+            <p class="stat-number">{{onLibBooks}}</p>
+            <p class="stat-name">Libros en biblioteca</p>
+        </div>
+        <div class="stat">
+            <p class="stat-number">{{readedBooks}}</p>
+            <p class="stat-name">Libros leidos</p>
+        </div>
+        <div class="stat">
+            <p class="stat-number">{{nFollowedAuthors}}</p>
+            <p class="stat-name">Autores seguidos</p>
+        </div>
+        <div class="stat">
+            <p class="stat-number">{{nSuscribedAuthors}}</p>
+            <p class="stat-name">Subscripciones activas</p>
+        </div>
     </div>
 </div>
 <section class="info">
     <div class="nav">
-        <div class="nav-option hover active" (click)="showAboutMe()">Sobre mí</div>
-        <div class="nav-option hover" (click)="showPersonalInf()">Información Personal</div>
-        <div class="nav-option hover" (click)="showSubs()">Suscripciones</div>
+        <div id="nav-op-1" class="nav-option hover active" (click)="showAboutMe()">Sobre mí</div>
+        <div id="nav-op-2" class="nav-option hover" (click)="showPersonalInf()">Información Personal</div>
+        <div id="nav-op-3" class="nav-option hover" (click)="showSubs()">Suscripciones</div>
     </div>
     <div class="tabs">
         <app-about-me id="tab1"></app-about-me>
-        <app-personal-info id="tab2" class="hidden"></app-personal-info>
-        <app-subscriptions id="tab3" class="hidden"></app-subscriptions>
+        <app-personal-info id="tab2" class="not-display"></app-personal-info>
+        <app-subscriptions id="tab3" class="not-display"></app-subscriptions>
     </div>
 </section>

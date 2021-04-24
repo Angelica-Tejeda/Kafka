@@ -10,8 +10,6 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
-    
-    
 }
 .profile-pic{
     display: flex;
@@ -21,7 +19,6 @@
     text-align: center;
     align-items: center;
     margin-top: 25px;
-   
 }
 .profile-pic img{
     height: 200px;
@@ -32,34 +29,53 @@
     flex-basis: 40%;
     font-weight: bold;
 }
+.username{
+    font-size: 20px;
+}
 .stats{
+    margin-top: 10px;
     flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.stat{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.stat-number{
+    font-size: 40px;
+    margin-bottom: 0;
+}
+.stat-name{
+    font-size: 18px;
+    font-weight: bold;
 }
 .info{
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 .nav{
     background-color: #A05344;
     width: 100%;
-}
-.nav,.tabs{
     display: flex;
     justify-content: center;
     font-weight: bold;
-
 }
 .nav-option{
-    margin: 10px;
+    padding: 20px;
+}
+.nav-option:hover{
+    cursor: pointer;
 }
 .tabs{
     text-align: center;
 }
-.hidden{
-    visibility: hidden;
+.not-display{
+    display: none;
 }
 .active{
-    background-color: #9844a000;
+
+    background-color: #734046;
 }

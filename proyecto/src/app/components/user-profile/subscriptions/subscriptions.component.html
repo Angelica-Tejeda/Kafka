@@ -1,1 +1,23 @@
-<p>subscriptions works!</p>
+<section>
+
+    <div>
+        <h3>Autores a los que estoy suscrito ({{suscribedAuthors.length}})</h3>
+        <div class="authors">
+            <div *ngFor="let sub of suscribedAuthors" class="author-info">
+                <img src="{{sub.pic}}" alt="{{sub.name}} picture" class="author-pic">
+                <p class="author-name">{{sub.name}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h3>Autores a los que sigo ({{followedAuthors.length}})</h3>
+        <div class="authors">
+            <div *ngFor="let sub of followedAuthors" class="author-info">
+                <img src="{{sub.pic}}" alt="{{sub.name}} picture" class="author-pic">
+                <p class="author-name">{{sub.name}}</p>
+            </div>
+        </div>
+    </div>
+
+</section>
