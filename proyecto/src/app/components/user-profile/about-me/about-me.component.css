@@ -1,7 +1,19 @@
-section{
-    margin-top: 30px;
-    margin-bottom: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
+
+.border-cont {
+  border: 1px solid white;
+  border-radius: 5px;
+
+}
+
+.aboutMe {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  flex-basis: calc(55% - 15px);
+}
+
+.moreInfo {
+  flex-basis: calc(45% - 15px);
 }
