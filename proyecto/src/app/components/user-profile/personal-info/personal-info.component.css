@@ -5,3 +5,33 @@ section{
     margin-right: auto;
     width: 90%;
 }
+label,p{
+    margin: 0;
+}
+label{
+    font-weight: bold;
+}
+input{
+    margin-right: 10px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.etiqueta{
+    margin-right: 20px;
+}
+.change{
+    font-weight: bold;
+    color: #c8580e;
+}
+.change:hover{
+    cursor: pointer;
+}

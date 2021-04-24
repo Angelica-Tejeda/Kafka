@@ -1,8 +1,30 @@
-<section>
-    <div>
-        <p class=""><span class="">Nombres y apellidos: </span>Usuario Usuario</p>
-        <p class=""><span class="">Edad: </span>24</p>
-        <p class=""><span class="">País: </span>Ecuador</p>
-        <p class=""><span class="">Correo electrónico: </span>usuario@kafka.com</p>
-    </div>
+<section class="personal-info">
+    <form action="" class="form">
+        <div class="form-box">
+            <label class="etiqueta" for="nombre">Nombre: </label>
+            <input class='info-edit' type="text" class="hidden" id="nombre" readonly value="{{user.name}}">
+            <span class="change" (click)="unlock('nombre')">Cambiar</span>
+        </div>
+        <div class="form-box">
+            <label class="etiqueta" for="userName">Usuario: </label>
+            <input class='info-edit' type="text" class="hidden" id="userName" readonly value="{{user.userName}}">
+            <span class="change" (click)="unlock('userName')">Cambiar</span>
+        </div>
+        <div class="form-box">
+            <label class="etiqueta" for="password">Contraseña: </label>
+            <input class='info-edit' type="password" class="hidden" id="password" readonly value="{{user.password}}">
+            <span class="change" (click)="unlock('password')">Cambiar</span>
+        </div>
+        <div class="form-box">
+            <label class="etiqueta" for="email">Correo: </label>
+            <input class='info-edit' type="email" class="hidden" id="email" readonly value="{{user.email}}">
+            <span class="change" (click)="unlock('email')">Cambiar</span>
+        </div>
+        <div class="form-box">
+            <label class="etiqueta" for="dateOfBirth">Fecha de Nacimiento: </label>
+            <input class='info-edit' type="date" class="hidden" id="dateOfBirth" readonly value="{{user.dateOfBirth}}">
+            <span class="change" (click)="unlock('dateOfBirth')">Cambiar</span>
+        </div>
+    </form>
+    
 </section>
