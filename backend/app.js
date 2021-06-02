@@ -42,7 +42,7 @@ app.listen(PORT, () => {
 //Conexion force:true borra la tabla
     sequelize.sync({force:false}).then(() => {
         console.log("Conexion a la base de datos exitosa");
-    }).catch(error=>{console.log("se produjo un error");
+    }).catch(error=>{console.log(error);
 
 })
 

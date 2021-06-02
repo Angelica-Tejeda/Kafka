@@ -3,27 +3,27 @@
         <div class="form-box">
             <label class="etiqueta" for="nombre">Nombre: </label>
             <input class='info-edit' type="text" class="hidden" id="nombre" readonly value="{{user.name}}">
-            <span class="change" (click)="unlock('nombre')">Cambiar</span>
+            <span  (click)="unlock('nombre')"><i class="far fa-edit change"></i></span>
         </div>
         <div class="form-box">
             <label class="etiqueta" for="userName">Usuario: </label>
             <input class='info-edit' type="text" class="hidden" id="userName" readonly value="{{user.userName}}">
-            <span class="change" (click)="unlock('userName')">Cambiar</span>
+            <span  (click)="unlock('userName')"><i class="far fa-edit change"></i></span>
         </div>
         <div class="form-box">
             <label class="etiqueta" for="password">Contraseña: </label>
             <input class='info-edit' type="password" class="hidden" id="password" readonly value="{{user.password}}">
-            <span class="change" (click)="unlock('password')">Cambiar</span>
+            <span  (click)="unlock('password')"><i class="far fa-edit change"></i></span>
         </div>
         <div class="form-box">
             <label class="etiqueta" for="email">Correo: </label>
             <input class='info-edit' type="email" class="hidden" id="email" readonly value="{{user.email}}">
-            <span class="change" (click)="unlock('email')">Cambiar</span>
+            <span  (click)="unlock('email')"><i class="far fa-edit change"></i></span>
         </div>
         <div class="form-box">
             <label class="etiqueta" for="dateOfBirth">Fecha de Nacimiento: </label>
             <input class='info-edit' type="date" class="hidden" id="dateOfBirth" readonly value="{{user.dateOfBirth}}">
-            <span class="change" (click)="unlock('dateOfBirth')">Cambiar</span>
+            <span  (click)="unlock('dateOfBirth')"><i class="far fa-edit change"></i></span>
         </div>
     </form>
     

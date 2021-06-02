@@ -4,10 +4,8 @@ const sequelize = require("../db");
 class Usuario extends Model { }
 Usuario.init(
     {
-        titulo: DataTypes.STRING,
-        contenido: DataTypes.TEXT,
-        block: DataTypes.BOOLEAN,
-        libroId: DataTypes.INTEGER
+        nombre: DataTypes.STRING,
+        apellido: DataTypes.STRING
     }, { sequelize, modelName: "usuario", timestamps: false })
 
 /*Seccion.associate = models => {

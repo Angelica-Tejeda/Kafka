@@ -11,3 +11,11 @@ exports.findOne=async (req, res) =>{
         res.json(err);
     })
 }
+exports.findAll=async (req, res) =>{
+    Usuario.findAll({
+    }).then(usuario=>{
+        res.status(200).json(usuario);
+    }).catch(err =>{
+        res.json(err);
+    })
+}
