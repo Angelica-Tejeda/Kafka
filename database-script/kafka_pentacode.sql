@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 01-06-2021 a las 22:15:39
+-- Tiempo de generación: 09-06-2021 a las 06:53:37
 -- Versión del servidor: 5.7.31
 -- Versión de PHP: 7.3.21
 
@@ -36,8 +36,10 @@ CREATE TABLE IF NOT EXISTS `aporte` (
   `seleccionado` tinyint(1) NOT NULL DEFAULT '0',
   `fechaCreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fechaModificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`aporteID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`aporteID`),
+  KEY `usuarioID` (`usuarioID`),
+  KEY `seccionID` (`seccionID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -71,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `genero` (
   `generoID` tinyint(3) NOT NULL AUTO_INCREMENT,
   `nombreGenero` varchar(30) NOT NULL,
   PRIMARY KEY (`generoID`),
-  UNIQUE KEY `nombreGenero` (`nombreGenero`)
+  KEY `nombreGenero` (`nombreGenero`)
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
 --
@@ -172,7 +174,8 @@ CREATE TABLE IF NOT EXISTS `metodo_pago` (
   `tipoPago` tinyint(1) NOT NULL COMMENT '1:Tarjeta credito/debito, 2:Paypal',
   `fechaCreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fechaModificaicon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`metodoPagoID`)
+  PRIMARY KEY (`metodoPagoID`),
+  KEY `usuarioID` (`usuarioID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -215,7 +218,8 @@ CREATE TABLE IF NOT EXISTS `obra` (
   `fechaCreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fechaModificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`obraID`),
-  KEY `autorID` (`autorID`)
+  KEY `autorID` (`autorID`),
+  KEY `tituloObra` (`tituloObra`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
@@ -370,6 +374,13 @@ INSERT INTO `usuario` (`usuarioID`, `nombreUsuario`, `email`, `password`, `nombr
 --
 
 --
+-- Filtros para la tabla `aporte`
+--
+ALTER TABLE `aporte`
+  ADD CONSTRAINT `aporte_ibfk_1` FOREIGN KEY (`usuarioID`) REFERENCES `usuario` (`usuarioID`),
+  ADD CONSTRAINT `aporte_ibfk_2` FOREIGN KEY (`seccionID`) REFERENCES `seccion` (`seccionID`);
+
+--
 -- Filtros para la tabla `biblioteca`
 --
 ALTER TABLE `biblioteca`
@@ -394,7 +405,7 @@ ALTER TABLE `genero_obra`
 -- Filtros para la tabla `metodo_pago`
 --
 ALTER TABLE `metodo_pago`
-  ADD CONSTRAINT `metodo_pago_ibfk_1` FOREIGN KEY (`metodoPagoID`) REFERENCES `usuario` (`usuarioID`);
+  ADD CONSTRAINT `metodo_pago_ibfk_1` FOREIGN KEY (`usuarioID`) REFERENCES `usuario` (`usuarioID`);
 
 --
 -- Filtros para la tabla `nota`
