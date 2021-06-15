@@ -1,6 +1,6 @@
 const Usuario = require("../database/models/Usuario");
 
-exports.gelAllUsuarios = async (req, res) => {
+exports.getAllUsuarios = async (req, res) => {
     Usuario.findAll().then((usuarios) => {
         res.json(usuarios);
     });
