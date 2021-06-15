@@ -1,19 +1,20 @@
 {
-  "name": "kafka-backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "nodemon app.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mysql2": "^2.2.5",
-    "nodemon": "^2.0.7",
-    "sequelize": "^6.6.2",
-    "sequelize-auto-models": "^0.2.14"
-  }
+    "name": "kafka-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "mysql2": "^2.2.5",
+        "nodemon": "^2.0.7",
+        "sequelize": "^6.6.2",
+        "sequelize-auto-models": "^0.2.14"
+    }
 }
