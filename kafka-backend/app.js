@@ -11,7 +11,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Rutas
-app.use("/api/usuarios", require("./routes/Usuario.routes"));
+app.use("/api/genero", require("./routes/Genero.routes"));
+app.use("/api/obra", require("./routes/Obra.routes"))
+app.use("/api/seccion", require("./routes/Seccion.routes"))
+app.use("/api/usuario", require("./routes/Usuario.routes"));
 
 // Inicialización del servidor
 app.listen(PORT, function () {
