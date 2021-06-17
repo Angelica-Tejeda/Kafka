@@ -1,12 +1,12 @@
-const Seccion = require("../database/models/Seccion");
+const MetodoPago = require("../database/models/MetodoPago");
 
-exports.createSeccion = async (req, res) => {
-    Seccion.create({
-        id: req.body.id,
-        orden: req.body.orden,
+exports.createMetodoPago = async (req, res) => {
+    MetodoPago.create({
+        usuario: req.body.usuario,
+        tipo: req.body.tipo,
     })
-        .then((seccion) => {
-            res.json(seccion);
+        .then((metodo_pago) => {
+            res.json(metodo_pago);
         })
         .catch((err) => {
             console.log("error: " + err);
@@ -14,10 +14,10 @@ exports.createSeccion = async (req, res) => {
         });
 };
 
-exports.getAllSecciones = async (req, res) => {
-    Seccion.findAll()
-        .then((secciones) => {
-            res.json(secciones);
+exports.getAllMetodosPago = async (req, res) => {
+    MetodoPago.findAll()
+        .then((metodos_pago) => {
+            res.json(metodos_pago);
         })
         .catch((err) => {
             console.log("error: " + err);
@@ -25,10 +25,10 @@ exports.getAllSecciones = async (req, res) => {
         });
 };
 
-exports.getSeccionById = async (req, res) => {
-    Seccion.findByPk(req.params.id)
-        .then((seccion) => {
-            res.json(seccion);
+exports.getMetodoPagoById = async (req, res) => {
+    MetodoPago.findByPk(req.params.id)
+        .then((metodo_pago) => {
+            res.json(metodo_pago);
         })
         .catch((err) => {
             console.log("error: " + err);
@@ -36,12 +36,12 @@ exports.getSeccionById = async (req, res) => {
         });
 };
 
-exports.getSeccionesByObra = async (req, res) => {
-    Seccion.findAll({
-        where: { obra: req.params.obra },
+exports.getMetodosPagoByUsuario = async (req, res) => {
+    MetodoPago.findAll({
+        where: { usuario: req.params.usuario },
     })
-        .then((secciones) => {
-            res.json(secciones);
+        .then((metodos_pago) => {
+            res.json(metodos_pago);
         })
         .catch((err) => {
             console.log("error: " + err);
@@ -49,13 +49,10 @@ exports.getSeccionesByObra = async (req, res) => {
         });
 };
 
-exports.updateSeccion = async (req, res) => {
-    Seccion.update(
+exports.updateMetodoPago = async (req, res) => {
+    MetodoPago.update(
         {
-            titulo: req.body.titulo,
-            orden: req.body.orden,
-            contenido: req.body.contenido,
-            estado: req.body.estado,
+            tipo: req.body.tipo,
         },
         {
             where: { id: req.params.id },
@@ -70,8 +67,8 @@ exports.updateSeccion = async (req, res) => {
         });
 };
 
-exports.deleteSeccion = async (req, res) => {
-    Seccion.destroy({
+exports.deleteMetodoPago = async (req, res) => {
+    MetodoPago.destroy({
         where: { id: req.params.id },
     })
         .then((result) => {

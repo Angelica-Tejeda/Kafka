@@ -5,22 +5,21 @@ const Model = Sequelize.Model;
 class Seccion extends Model {}
 Seccion.init(
     {
-        seccionID: {
+        id: {
             type: Sequelize.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            autoIncrement: true,
         },
-        obraID: {
+        obra: {
             type: Sequelize.BIGINT,
             allowNull: false,
             references: {
                 model: "obra",
-                key: "obraID",
+                key: "id",
             },
         },
-        tituloSeccion: {
+        titulo: {
             type: Sequelize.STRING(255),
             allowNull: true,
         },
@@ -32,17 +31,17 @@ Seccion.init(
             type: Sequelize.TEXT,
             allowNull: true,
         },
-        estadoSeccion: {
+        estado: {
             type: Sequelize.INTEGER(1),
             allowNull: false,
             defaultValue: "1",
         },
-        fechaCreacion: {
+        fecha_creacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
         },
-        fechaModificacion: {
+        fecha_modificacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),

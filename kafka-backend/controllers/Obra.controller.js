@@ -2,24 +2,32 @@ const Obra = require("../database/models/Obra");
 
 exports.createObra = async (req, res) => {
     Obra.create({
-        tituloObra: req.body.tituloObra,
-        portadaImg: req.body.portadaImg,
-        autorID: req.body.autorID,
+        titulo: req.body.titulo,
+        portada: req.body.portada,
+        escritor: req.body.escritor,
         sinopsis: req.body.sinopsis,
         adulto: req.body.adulto,
         exclusivo: req.body.exclusivo,
-        fechaPublicOriginal: req.body.fechaPublicOriginal,
+        anio_publicacion: req.body.anio_publicacion,
     })
         .then((obra) => {
             res.json(obra);
         })
-        .catch((err) => console.log("error: " + err));
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
 };
 
 exports.getAllObras = async (req, res) => {
-    Obra.findAll().then((obras) => {
-        res.json(obras);
-    });
+    Obra.findAll()
+        .then((obras) => {
+            res.json(obras);
+        })
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
 };
 
 exports.getObraById = async (req, res) => {
@@ -27,51 +35,58 @@ exports.getObraById = async (req, res) => {
         .then((obra) => {
             res.json(obra);
         })
-        .catch((err) => console.log("error: " + err));
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
 };
 
-exports.getObrasByAutor = async (req, res) => {
+exports.getObrasByEscritor = async (req, res) => {
     Obra.findAll({
-        where: {
-            autorID: req.params.autorID,
-        },
+        where: { escritor: req.params.escritor },
     })
-        .then((obra) => {
-            res.json(obra);
+        .then((obras) => {
+            res.json(obras);
         })
-        .catch((err) => console.log("error: " + err));
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
 };
 
 exports.updateObra = async (req, res) => {
     Obra.update(
         {
-            email: req.body.email,
-            password: req.body.password,
-            seudonimo: req.body.seudonimo,
-            fotoPerfil: req.body.fotoPerfil,
-            bio: req.body.bio,
-            tipoObra: req.body.tipoObra,
+            titulo: req.body.titulo,
+            portada: req.body.portada,
+            sinopsis: req.body.sinopsis,
+            adulto: req.body.adulto,
+            estado: req.body.estado,
+            exclusivo: req.body.exclusivo,
+            anio_publicacion: req.body.anio_publicacion,
         },
         {
-            where: {
-                obraID: req.params.id,
-            },
+            where: { id: req.params.id },
         }
     )
         .then((result) => {
             res.json(result);
         })
-        .catch((err) => console.log("error: " + err));
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
 };
 
 exports.deleteObra = async (req, res) => {
     Obra.destroy({
-        where: {
-            obraID: req.params.id,
-        },
+        where: { id: req.params.id },
     })
         .then((result) => {
             res.json(result);
         })
-        .catch((err) => console.log("error: " + err));
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
 };

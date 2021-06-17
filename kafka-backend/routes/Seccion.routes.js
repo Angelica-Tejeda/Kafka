@@ -6,7 +6,7 @@ const controller = require("../controllers/Seccion.controller");
 router.post("/", controller.createSeccion);
 router.get("/", controller.getAllSecciones);
 router.get("/:id", controller.getSeccionById);
-router.get("/obra/:obraID", controller.getSeccionesByObra);
+router.get("/obra/:obra", controller.getSeccionesByObra);
 router.patch("/:id", controller.updateSeccion);
 router.delete("/:id", controller.deleteSeccion);
 

@@ -5,40 +5,85 @@ const Model = Sequelize.Model;
 class Usuario extends Model {}
 Usuario.init(
     {
-        usuarioID: {
+        id: {
             type: Sequelize.INTEGER(11),
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            autoIncrement: true,
         },
-        nombreUsuario: {
+        nombre_usuario: {
             type: Sequelize.STRING(25),
             allowNull: false,
             unique: true,
+            validate: {
+                notEmpty: {
+                    args: true,
+                    msg: "El campo Nombre de Usuario no puede estar vacío.",
+                },
+                len: {
+                    args: [5, 25],
+                    msg: "El Nombre de Usuario debe contener entre 5 y 25 carácteres.",
+                },
+            },
         },
-        email: {
+        correo: {
             type: Sequelize.STRING(250),
             allowNull: false,
             unique: true,
+            validate: {
+                notEmpty: {
+                    args: true,
+                    msg: "El campo Correo electrónico no puede estar vacío.",
+                },
+                isEmail: {
+                    args: true,
+                    msg: "El correo electrónico no es válido.",
+                },
+            },
         },
-        password: {
+        contrasena: {
             type: Sequelize.STRING(64),
             allowNull: false,
+            validate: {
+                notEmpty: {
+                    args: true,
+                    msg: "El campo Correo electrónico no puede estar vacío.",
+                },
+            },
         },
         nombre: {
             type: Sequelize.STRING(60),
             allowNull: false,
+            validate: {
+                notEmpty: {
+                    args: true,
+                    msg: "El campo Nombre no puede estar vacío.",
+                },
+                isAlpha: {
+                    args: true,
+                    msg: "El nombre solo puede contener letras.",
+                },
+            },
         },
         apellido: {
             type: Sequelize.STRING(60),
             allowNull: false,
+            validate: {
+                notEmpty: {
+                    args: true,
+                    msg: "El campo Apellido no puede estar vacío.",
+                },
+                isAlpha: {
+                    args: true,
+                    msg: "El apellido solo puede contener letras.",
+                },
+            },
         },
         seudonimo: {
             type: Sequelize.STRING(60),
             allowNull: true,
         },
-        fechaNacimiento: {
+        fecha_nacimiento: {
             type: Sequelize.DATEONLY,
             allowNull: false,
         },
@@ -46,7 +91,7 @@ Usuario.init(
             type: Sequelize.STRING(70),
             allowNull: true,
         },
-        fotoPerfil: {
+        foto: {
             type: Sequelize.STRING(500),
             allowNull: false,
             defaultValue:
@@ -56,17 +101,17 @@ Usuario.init(
             type: Sequelize.TEXT,
             allowNull: true,
         },
-        tipoUsuario: {
+        rol: {
             type: Sequelize.INTEGER(1),
             allowNull: false,
             defaultValue: "1",
         },
-        fechaCreacion: {
+        fecha_creacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
         },
-        fechaModificacion: {
+        fecha_modificacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
@@ -77,6 +122,14 @@ Usuario.init(
         modelName: "usuario",
         freezeTableName: true,
         timestamps: false,
+        hooks: {
+            afterCreate: (record) => {
+                delete record.dataValues.contrasena;
+            },
+            afterUpdate: (record) => {
+                delete record.dataValues.contrasena;
+            },
+        }
     }
 );
 

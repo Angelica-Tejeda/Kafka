@@ -5,14 +5,13 @@ const Model = Sequelize.Model;
 class Genero extends Model {}
 Genero.init(
     {
-        generoID: {
+        id: {
             type: Sequelize.INTEGER(3),
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            autoIncrement: true,
         },
-        nombreGenero: {
+        nombre: {
             type: Sequelize.STRING(30),
             allowNull: false,
         },
