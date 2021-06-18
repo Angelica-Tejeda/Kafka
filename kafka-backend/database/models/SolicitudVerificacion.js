@@ -5,44 +5,44 @@ const Model = Sequelize.Model;
 class SolicitudVerificacion extends Model {}
 SolicitudVerificacion.init(
     {
-        verificacionID: {
+        id: {
             type: Sequelize.INTEGER(11),
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            autoIncrement: true,
         },
-        verificadorID: {
+        verificador: {
             type: Sequelize.INTEGER(11),
             allowNull: false,
             references: {
                 model: "usuario",
-                key: "usuarioID",
+                key: "id",
             },
         },
-        usuarioID: {
+        usuario: {
             type: Sequelize.INTEGER(11),
             allowNull: false,
+            unique: true,
             references: {
                 model: "usuario",
-                key: "usuarioID",
+                key: "id",
             },
         },
-        estadoSolicitud: {
+        estado: {
             type: Sequelize.INTEGER(1),
             allowNull: false,
             defaultValue: "1",
         },
-        fechaVerificacion: {
+        fecha_verificacion: {
             type: Sequelize.DATE,
             allowNull: true,
         },
-        fechaCreacion: {
+        fecha_creacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
         },
-        fechaModificacion: {
+        fecha_modificacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),

@@ -8,51 +8,108 @@ exports.getAllUsuarios = async (req, res) => {
 
 exports.createUsuario = async (req, res) => {
     Usuario.create({
-        nombreUsuario: req.body.nombreUsuario,
-        email: req.body.email,
-        password: req.body.password,
+        nombre_usuario: req.body.nombre_usuario,
+        correo: req.body.correo,
+        contrasena: req.body.contrasena,
         nombre: req.body.nombre,
         apellido: req.body.apellido,
-        fechaNacimiento: req.body.fechaNacimiento,
+        fecha_nacimiento: req.body.fecha_nacimiento,
         pais: req.body.pais,
-        tipoUsuario: req.body.tipoUsuario,
-    }).then((usuario) => {
-        res.json(usuario);
-    });
-}
+        rol: req.body.rol,
+    })
+        .then((usuario) => {
+            res.json(usuario);
+        })
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
+};
+
+exports.getAllUsuarios = async (req, res) => {
+    Usuario.findAll({
+        attributes: { exclude: ["contrasena"] },
+    })
+        .then((usuarios) => {
+            res.json(usuarios);
+        })
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
+};
 
 exports.getUsuarioById = async (req, res) => {
-    Usuario.findByPk(req.params.id).then((usuario) => {
-        res.json(usuario);
-    });
-}
+    Usuario.findByPk(req.params.id, { attributes: { exclude: ["contrasena"] } })
+        .then((usuario) => {
+            res.json(usuario);
+        })
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
+};
+
+exports.getUsuarioByCorreo = async (req, res) => {
+    Usuario.findOne({
+        where: { correo: req.params.correo },
+        attributes: { exclude: ["contrasena"] },
+    })
+        .then((usuario) => {
+            res.json(usuario);
+        })
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
+};
+
+exports.getUsuariosByRol = async (req, res) => {
+    Usuario.findAll({
+        where: { rol: req.params.rol },
+        attributes: { exclude: ["contrasena"] },
+    })
+        .then((usuarios) => {
+            res.json(usuarios);
+        })
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
+};
 
 exports.updateUsuario = async (req, res) => {
     Usuario.update(
         {
-            email: req.body.email,
-            password: req.body.password,
+            correo: req.body.correo,
+            contrasena: req.body.contrasena,
             seudonimo: req.body.seudonimo,
-            fotoPerfil: req.body.fotoPerfil,
+            foto: req.body.foto,
             bio: req.body.bio,
-            tipoUsuario: req.body.tipoUsuario,
+            rol: req.body.rol,
         },
         {
-            where: {
-                usuarioID: req.params.id,
-            },
+            where: { id: req.params.id },
         }
-    ).then((result) => {
-        res.json(result);
-    });
-}
+    )
+        .then((result) => {
+            res.json(result);
+        })
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
+};
 
 exports.deleteUsuario = async (req, res) => {
     Usuario.destroy({
-        where: {
-            usuarioID: req.params.id,
-        },
-    }).then((result) => {
-        res.json(result);
-    });
-}
+        where: { id: req.params.id },
+    })
+        .then((result) => {
+            res.json(result);
+        })
+        .catch((err) => {
+            console.log("error: " + err);
+            res.json(err);
+        });
+};

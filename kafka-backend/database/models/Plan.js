@@ -5,22 +5,21 @@ const Model = Sequelize.Model;
 class Plan extends Model {}
 Plan.init(
     {
-        planID: {
+        id: {
             type: Sequelize.INTEGER(11),
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            autoIncrement: true,
         },
-        usuarioID: {
+        escritor: {
             type: Sequelize.INTEGER(11),
             allowNull: false,
             references: {
                 model: "usuario",
-                key: "usuarioID",
+                key: "id",
             },
         },
-        nombrePlan: {
+        nombre: {
             type: Sequelize.STRING(30),
             allowNull: false,
         },
@@ -52,12 +51,12 @@ Plan.init(
             type: Sequelize.STRING(500),
             allowNull: true,
         },
-        fechaCreacion: {
+        fecha_creacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
         },
-        fechaModificacion: {
+        fecha_modificacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),

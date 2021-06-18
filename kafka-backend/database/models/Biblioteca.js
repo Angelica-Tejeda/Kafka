@@ -5,27 +5,26 @@ const Model = Sequelize.Model;
 class Biblioteca extends Model {}
 Biblioteca.init(
     {
-        bibliotecaID: {
+        id: {
             type: Sequelize.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            autoIncrement: true,
         },
-        usuarioID: {
+        usuario: {
             type: Sequelize.INTEGER(11),
             allowNull: false,
             references: {
                 model: "usuario",
-                key: "usuarioID",
+                key: "id",
             },
         },
-        obraID: {
+        obra: {
             type: Sequelize.BIGINT,
             allowNull: false,
             references: {
                 model: "obra",
-                key: "obraID",
+                key: "id",
             },
         },
         oculto: {
@@ -33,22 +32,22 @@ Biblioteca.init(
             allowNull: false,
             defaultValue: "0",
         },
-        faborito: {
+        favorito: {
             type: Sequelize.INTEGER(1),
             allowNull: false,
             defaultValue: "0",
         },
-        terminado: {
+        leido: {
             type: Sequelize.INTEGER(1),
             allowNull: false,
             defaultValue: "0",
         },
-        fechaCreacion: {
+        fecha_creacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
         },
-        fechaModificacion: {
+        fecha_modificacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),

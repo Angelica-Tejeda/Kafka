@@ -5,31 +5,30 @@ const Model = Sequelize.Model;
 class MetodoPago extends Model {}
 MetodoPago.init(
     {
-        metodoPagoID: {
+        id: {
             type: Sequelize.INTEGER(11),
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            autoIncrement: true,
         },
-        usuarioID: {
+        usuario: {
             type: Sequelize.INTEGER(11),
             allowNull: false,
             references: {
                 model: "usuario",
-                key: "usuarioID",
+                key: "id",
             },
         },
-        tipoPago: {
+        tipo: {
             type: Sequelize.INTEGER(1),
             allowNull: false,
         },
-        fechaCreacion: {
+        fecha_creacion: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
         },
-        fechaModificaicon: {
+        fecha_modificaicon: {
             type: Sequelize.DATE,
             allowNull: false,
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),

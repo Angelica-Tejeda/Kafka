@@ -5,27 +5,26 @@ const Model = Sequelize.Model;
 class GeneroObra extends Model {}
 GeneroObra.init(
     {
-        generoObraID: {
+        id: {
             type: Sequelize.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            autoIncrement: true,
         },
-        usuarioID: {
-            type: Sequelize.INTEGER(11),
+        obra: {
+            type: Sequelize.BIGINT,
             allowNull: false,
             references: {
-                model: "usuario",
-                key: "usuarioID",
+                model: "obra",
+                key: "id",
             },
         },
-        generoID: {
+        genero: {
             type: Sequelize.INTEGER(3),
             allowNull: false,
             references: {
                 model: "genero",
-                key: "generoID",
+                key: "id",
             },
         },
     },
