@@ -5,6 +5,7 @@ import { SeccionService } from 'src/app/services/seccion.service';
 import { Seccion } from './seccion.model';
 import { LibroService } from 'src/app/services/libro.service';
 
+
 @Component({
   selector: 'app-vista-escritura',
   templateUrl: './vista-escritura.component.html',
@@ -16,15 +17,20 @@ export class VistaEscrituraComponent implements OnInit {
   tituloarea:string="";
   contenidoarea:string="";
   titulolibro:string="";
+
+  htmlContent:string="";
+
   constructor(private location:Location,private route: ActivatedRoute,
     private router: Router, private seccion:SeccionService, private libro: LibroService) { }
 
   ngOnInit(): void {
 
-    this.id=Number(this.route.snapshot.paramMap.get("id"));
+    this.route.params.subscribe(({id})=>{
+      console.log("Este es el id "+id);
+    })
     console.log("Este es el id "+ this.id);
-    this.get_secciones();
-    this.get_libro();
+    //this.get_secciones();
+    //this.get_libro();
   }
 
   get_secciones(){
