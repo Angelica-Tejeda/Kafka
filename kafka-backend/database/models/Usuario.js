@@ -16,13 +16,9 @@ Usuario.init(
             allowNull: false,
             unique: true,
             validate: {
-                notEmpty: {
-                    args: true,
-                    msg: "El campo Nombre de Usuario no puede estar vacío.",
-                },
+                notEmpty: true,
                 len: {
                     args: [5, 25],
-                    msg: "El Nombre de Usuario debe contener entre 5 y 25 carácteres.",
                 },
             },
         },
@@ -31,13 +27,9 @@ Usuario.init(
             allowNull: false,
             unique: true,
             validate: {
-                notEmpty: {
-                    args: true,
-                    msg: "El campo Correo electrónico no puede estar vacío.",
-                },
+                notEmpty: true,
                 isEmail: {
                     args: true,
-                    msg: "El correo electrónico no es válido.",
                 },
             },
         },
@@ -45,38 +37,23 @@ Usuario.init(
             type: Sequelize.STRING(64),
             allowNull: false,
             validate: {
-                notEmpty: {
-                    args: true,
-                    msg: "El campo Correo electrónico no puede estar vacío.",
-                },
+                notEmpty: true,
             },
         },
         nombre: {
             type: Sequelize.STRING(60),
             allowNull: false,
             validate: {
-                notEmpty: {
-                    args: true,
-                    msg: "El campo Nombre no puede estar vacío.",
-                },
-                isAlpha: {
-                    args: true,
-                    msg: "El nombre solo puede contener letras.",
-                },
+                notEmpty: true,
+                isAlpha: true
             },
         },
         apellido: {
             type: Sequelize.STRING(60),
             allowNull: false,
             validate: {
-                notEmpty: {
-                    args: true,
-                    msg: "El campo Apellido no puede estar vacío.",
-                },
-                isAlpha: {
-                    args: true,
-                    msg: "El apellido solo puede contener letras.",
-                },
+                notEmpty: true,
+                isAlpha: true
             },
         },
         seudonimo: {

@@ -3,8 +3,7 @@ const { Router } = require("express");
 const router = Router();
 const controller = require("../controllers/Usuario.controller");
 
-router.post("/signup", controller.createUsuario);
-router.post("/login", controller.iniciarSesion);
+router.post("/", controller.createUsuario);
 router.get("/", controller.getAllUsuarios);
 router.get("/:id", controller.getUsuarioById);
 router.get("/correo/:correo", controller.getUsuarioByCorreo);
