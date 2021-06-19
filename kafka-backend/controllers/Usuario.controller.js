@@ -1,12 +1,5 @@
 const Usuario = require("../database/models/Usuario");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-
-exports.getAllUsuarios = async (req, res) => {
-    Usuario.findAll().then((usuarios) => {
-        res.json(usuarios);
-    });
-};
 
 exports.createUsuario = async (req, res) => {
     let contrasena = bcrypt.hashSync(req.body.contrasena, 10);
@@ -21,51 +14,7 @@ exports.createUsuario = async (req, res) => {
         rol: req.body.rol,
     })
         .then((usuario) => {
-            let token = jwt.sign({ usuario: usuario }, "laweasecreta", {
-                expiresIn: "7d",
-            });
-            res.json({
-                usuario: usuario,
-                token: token,
-            });
-        })
-        .catch((err) => {
-            console.log("error: " + err);
-            //res.json(err);
-        });
-};
-
-exports.iniciarSesion = async (req, res) => {
-    Usuario.findOne({
-        where: { correo: req.body.correo },
-        attributes: ["id", "contrasena", "rol"],
-        //attributes: { exclude: ["contrasena"] },
-    })
-        .then((usuario) => {
-            if (!usuario) {
-                res.status(404).json({
-                    msg: "El correo proporcionado no ha sido registrado.",
-                });
-            } else {
-                if (
-                    bcrypt.compareSync(req.body.contrasena, usuario.contrasena)
-                ) {
-                    let token = jwt.sign({ usuario: usuario }, "laweasecreta", {
-                        expiresIn: "7d",
-                    });
-                    res.json({
-                        usuario: {
-                            id: usuario.id,
-                            rol: usuario.rol
-                        },
-                        token: token,
-                    });
-                } else {
-                    res.status(401).json({
-                        msg: "La contraseña proporcionada no es correcta",
-                    });
-                }
-            }
+            res.json(usuario);
         })
         .catch((err) => {
             console.log("error: " + err);
