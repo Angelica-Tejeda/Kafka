@@ -3,6 +3,9 @@ import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { Libro } from '../components/collection/libro.model';
 import { SeccionService } from './seccion.service';
+
+const api_url = "http://localhost:3000/api";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,36 +16,21 @@ export class LibroService {
 
   }
 
-  getCollection():Observable<any>{
-    return this.http.get("http://localhost:3000/api/libro");
+  getAllObras():Observable<any>{
+    return this.http.get(`${api_url}/obra`);
   }
 
 
 
-  sendLibro(titulo: string, sipnosis: string, genero: number, clasificacion: string, idioma: string):Observable<any>{
-      var libro = {
-        titulo: titulo,
-        sinopsis: sipnosis,
-        genero: genero,
-        clasificacion: clasificacion,
-        idioma: idioma
-      }
+  sendLibro(libro:any):Observable<any>{
 
-      return this.http.post("http://localhost:3000/api/libro/",libro);
-      // .subscribe(res => {
-      //   if(res){
-      //     let data = JSON.parse(JSON.stringify(res));
-      //     console.log(data.id);
-      //     this.seccion.send_seccion("Borrador",Number(data.id),"","0");
 
-      //   }else{
-      //     console.log("No se envio :(");
-      //   }
-      // });
+      return this.http.post(`${api_url}/obra`,libro);
+
   }
 
-  get_libro(id:number): Observable<any>{
-    return  this.http.get(`http://localhost:3000/api/libro/${id}`);
+  getLibroById(id:number): Observable<any>{
+    return  this.http.get(`${api_url}/obra/${id}`);
   }
 
   get_libro_por_nombre(titulo:string): Observable<any>{

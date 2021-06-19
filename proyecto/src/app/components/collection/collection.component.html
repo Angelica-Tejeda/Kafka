@@ -16,10 +16,10 @@
     </div>
   </div>-->
   <div class="mt-1 row">
-    <a *ngFor="let libro of coleccion" [routerLink]="['/vistaLectura']" class="col-lg-3 col-md-4 col-sm-6">
-      <img class="center" src="{{libro.imgSource}}" alt="">
+    <a *ngFor="let libro of coleccion" [routerLink]="['/vistaescritura', libro.id]" class="col-lg-3 col-md-4 col-sm-6">
+      <img class="center" src="{{libro.portada}}" alt="">
       <p class="titulo-libro">{{libro.titulo}}</p>
-      <p class="genero-libro">{{libro.autor}}</p>
+      <p class="genero-libro">{{libro.anio_publicacion}}</p>
     </a>
   </div>
 
