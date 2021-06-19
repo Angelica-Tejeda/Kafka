@@ -17,9 +17,7 @@ Usuario.init(
             unique: true,
             validate: {
                 notEmpty: true,
-                len: {
-                    args: [5, 25],
-                },
+                len: [5, 25]
             },
         },
         correo: {
@@ -28,9 +26,7 @@ Usuario.init(
             unique: true,
             validate: {
                 notEmpty: true,
-                isEmail: {
-                    args: true,
-                },
+                isEmail:  true,
             },
         },
         contrasena: {
@@ -99,14 +95,14 @@ Usuario.init(
         modelName: "usuario",
         freezeTableName: true,
         timestamps: false,
-        hooks: {
+        /*hooks: {
             afterCreate: (record) => {
                 delete record.dataValues.contrasena;
             },
             afterUpdate: (record) => {
                 delete record.dataValues.contrasena;
             },
-        }
+        }*/
     }
 );
 
