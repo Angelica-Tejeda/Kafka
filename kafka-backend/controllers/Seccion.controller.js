@@ -3,7 +3,7 @@ const Seccion = require("../database/models/Seccion");
 exports.createSeccion = async (req, res) => {
     console.log(req.body);
     Seccion.create({
-        obra: req.body.obraId,
+        obra: req.body.obra,
         orden: req.body.orden,
     })
         .then((seccion) => {
