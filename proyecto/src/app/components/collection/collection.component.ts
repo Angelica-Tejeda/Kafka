@@ -9,19 +9,16 @@ import { Libro } from './libro.model';
   styleUrls: ['./collection.component.css']
 })
 export class CollectionComponent implements OnInit {
-  coleccion: Libro[] = [new Libro("Harry Potter y el cáliz de fuego","J.K Rowling","Mayores de 12 años","../../../assets/img/goblet.jpg"), new Libro("El resplandor","Stephen King","Mayores de 18 años","../../../assets/img/resplandor.jpg"), new Libro("Contacto","Carl Sagan","Mayores de 12 años","../../../assets/img/contacto.jpg"), new Libro("La Metamorfosis","Franz Kafka","Todo público","../../../assets/img/metamorfosisPortada.jpg"), new Libro("Drácula","Bram Stoker","Mayores de 12 años","../../../assets/img/dracula.jpg")];
+  coleccion: any[] = [];
 
-  constructor(private router: Router, private libros:LibroService) {
+  constructor(private router: Router, private librosS:LibroService) {
 
   }
 
   ngOnInit(): void {
-    this.libros.getCollection().subscribe((res:any)=>{
+    this.librosS.getAllObras().subscribe((res:any)=>{
       if(res){
-        for(let libro of res){
-          console.log(libro.titulo,libro.autor,libro.clasificacion);
-          this.coleccion.push(new Libro(libro.titulo,libro.autor,libro.clasificacion,libro.imgSource))
-        }
+        this.coleccion = res;
       }
 
     });

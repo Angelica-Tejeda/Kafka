@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const sequelize = require("./database/db");
 const bodyParser = require("body-parser");
+var cors = require('cors')
 
 // Configuracion
 const PORT = process.env.PORT || 3000;
@@ -9,6 +10,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+//Cross Origin
+app.use(cors())
 
 // Rutas
 app.use("/api/aporte", require("./routes/Aporte.routes"));

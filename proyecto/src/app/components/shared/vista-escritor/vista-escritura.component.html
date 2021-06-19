@@ -5,13 +5,13 @@
         <div class="container">
             <div class="img-container"><img class='portadaObra' src="../../../../assets/img/metamorfosisPortada.jpg" alt="Portada de la obra"></div>
             <div class="datosObra-container">
-                <p class="titulo">Titulo de Libro</p>
-                <ul class="lista-capitulos">
-                    <li>Capitulo 1: Lorem Ipsum</li>
-                    <li>Capitulo 2: Lorem Ipsum</li>
-                    <li>Capitulo 3: Lorem Ipsum</li>
+                <p class="titulo">{{titulolibro}}</p>
+                <ul style="width: 200px; height: 200px; overflow: auto" class="lista-capitulos">
+                    <li *ngFor="let seccion of secciones; let i=index" class="pointer" (click)="change(i)">
+                      {{seccion.titulo? seccion.titulo :'Agrege un titulo'}}
+                    </li>
                 </ul>
-                <button type="submit" class="btn btn-danger">Publicar</button>
+                <button (click)="newSection()" class="btn btn-danger">Agregar</button>
             </div>
         </div>
     </div>
@@ -29,12 +29,13 @@
             <i class="fa fa-align-right" aria-hidden="true"></i> -->
 
 
+
         </div>
 
-        <textarea [value]="tituloarea" #titulo class="area" placeholder="Titulo del capítulo." id="capitulo"></textarea>
+        <textarea [value]="tituloCap" #titulo (keyup)="saveTitle(titulo.value)" class="area" placeholder="Titulo del capítulo." id="capitulo"></textarea>
 
         <!-- <textarea [value]="contenidoarea" #contenido class="area" placeholder="Comienza tu historia." id="descripcion"></textarea> -->
-        <angular-editor  [(ngModel)]="htmlContent"></angular-editor>
+        <angular-editor  #content (keyup)="saveContent()" [config]="config"  [(ngModel)]="contenidoCap"></angular-editor>
       </div>
     <!--Fin de contenedor barra de herramientas y texto obra-->
 </div>

@@ -1,8 +1,9 @@
 const Seccion = require("../database/models/Seccion");
 
 exports.createSeccion = async (req, res) => {
+    console.log(req.body);
     Seccion.create({
-        id: req.body.id,
+        obra: req.body.obraId,
         orden: req.body.orden,
     })
         .then((seccion) => {
