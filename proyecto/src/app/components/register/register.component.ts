@@ -1,44 +1,106 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from 'src/app/services/login.service'
+import { LoginService } from 'src/app/services/login.service';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { RegistrationValidator } from './registration_validator';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  public passwordFormGroup: any;
+  public personalInfoFormGroup: any;
+  public contactInfoFormGroup: any;
+  public registerForm: any;
+  public userTypeFormGroup: any;
 
-  constructor(private auth:LoginService) { }
+  constructor(private auth: LoginService,
+    public formBuilder: FormBuilder,
+    private http: HttpClient,
+  ) {
+    this.formValidator();
+  }
+
+
+
+  formValidator() {
+  
+    this.passwordFormGroup = this.formBuilder.group({
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      repeatPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+    }, { validator: RegistrationValidator.validate.bind(this) })
+
+
+    this.personalInfoFormGroup = new FormGroup({
+      nombre: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)])),
+      apellido: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)])),
+      fech_nac: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)]))
+    });
+
+    this.contactInfoFormGroup = new FormGroup({
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+      ])),
+      telefono: new FormControl('')
+    });
+
+    this.userTypeFormGroup = new FormGroup({
+      tipoUser: new FormControl('')
+    });
+
+    this.registerForm = new FormGroup({
+      user: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)])),
+      passwordFormGroup: this.passwordFormGroup,
+      personalInfoFormGroup: this.personalInfoFormGroup,
+      contactInfoFormGroup: this.contactInfoFormGroup,
+      userTypeFormGroup: this.userTypeFormGroup
+    });
+  }
+  onSubmit() {
+    let payload = {
+      user : this.registerForm.value.user,
+      password: this.passwordFormGroup.value.password,
+    }
+    try {
+      this.http.post('http://localhost:3000/api/auth/signup',payload).subscribe((r)=> {
+      })
+    } catch (error) {
+      
+    }
+  }
 
   ngOnInit(): void {
-    $(document).ready(function() {
+    $(document).ready(function () {
       var base_color = "rgb(230,230,230)";
       var active_color = "#734046";
-      
-      
-      
+
+
+
       var child = 1;
       var length = $("section").length - 1;
       $("#prev").addClass("disabled");
       $("#submit").addClass("disabled");
-      
+
       $("section").not("section:nth-of-type(1)").hide();
-      $("section").not("section:nth-of-type(1)").css('transform','translateX(100px)');
-      
+      $("section").not("section:nth-of-type(1)").css('transform', 'translateX(100px)');
+
       var svgWidth = length * 200 + 24;
       $("#svg_wrap").html(
         '<svg version="1.1" id="svg_form_time" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 ' +
-          svgWidth +
-          ' 24" xml:space="preserve"></svg>'
+        svgWidth +
+        ' 24" xml:space="preserve"></svg>'
       );
-      let positionX=0;
-      function makeSVG(tag:any, attrs:any) {
+      let positionX = 0;
+      function makeSVG(tag: any, attrs: any) {
         var el = document.createElementNS("http://www.w3.org/2000/svg", tag);
         for (var k in attrs) el.setAttribute(k, attrs[k]);
         return el;
       }
-      
+
       for (let i = 0; i < length; i++) {
-         positionX = 12 + i * 200;
+        positionX = 12 + i * 200;
         var rect = makeSVG("rect", { x: positionX, y: 9, width: 200, height: 6 });
         $("#svg_form_time").append(rect);
         // <g><rect x="12" y="9" width="200" height="6"></rect></g>'
@@ -51,7 +113,7 @@ export class RegisterComponent implements OnInit {
         });
         $("#svg_form_time").append(circle);
       }
-      
+
       var circle = makeSVG("circle", {
         cx: positionX + 200,
         cy: 12,
@@ -60,12 +122,12 @@ export class RegisterComponent implements OnInit {
         height: 6
       });
       $("#svg_form_time").append(circle);
-      
-      $('#svg_form_time rect').css('fill',base_color);
-      $('#svg_form_time circle').css('fill',base_color);
+
+      $('#svg_form_time rect').css('fill', base_color);
+      $('#svg_form_time circle').css('fill', base_color);
       $("circle:nth-of-type(1)").css("fill", active_color);
-      
-       
+
+
       $(".button").click(function () {
         $("#svg_form_time rect").css("fill", active_color);
         $("#svg_form_time circle").css("fill", active_color);
@@ -100,18 +162,18 @@ export class RegisterComponent implements OnInit {
         );
         var currentSection = $("section:nth-of-type(" + child + ")");
         currentSection.fadeIn();
-        currentSection.css('transform','translateX(0)');
-       currentSection.prevAll('section').css('transform','translateX(-100px)');
-        currentSection.nextAll('section').css('transform','translateX(100px)');
+        currentSection.css('transform', 'translateX(0)');
+        currentSection.prevAll('section').css('transform', 'translateX(-100px)');
+        currentSection.nextAll('section').css('transform', 'translateX(100px)');
         $('section').not(currentSection).hide();
       });
-      
-      });
 
-      
-      $(".button").on('click',()=>{
+    });
 
-      })
+
+    $(".button").on('click', () => {
+
+    })
   }
 
 }
