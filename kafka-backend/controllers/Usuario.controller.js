@@ -38,7 +38,7 @@ exports.createUsuario = async (req, res) => {
 exports.iniciarSesion = async (req, res) => {
     Usuario.findOne({
         where: { correo: req.body.correo },
-        attributes: [id, rol],
+        attributes: ["id", "contrasena", "rol"],
         //attributes: { exclude: ["contrasena"] },
     })
         .then((usuario) => {
@@ -54,7 +54,10 @@ exports.iniciarSesion = async (req, res) => {
                         expiresIn: "7d",
                     });
                     res.json({
-                        usuario: usuario,
+                        usuario: {
+                            id: usuario.id,
+                            rol: usuario.rol
+                        },
                         token: token,
                     });
                 } else {
@@ -63,7 +66,6 @@ exports.iniciarSesion = async (req, res) => {
                     });
                 }
             }
-            res.json(usuario);
         })
         .catch((err) => {
             console.log("error: " + err);
