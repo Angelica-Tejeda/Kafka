@@ -32,13 +32,14 @@ export class LoginComponent implements OnInit {
       }
       console.log(payload);
       try {
-         this.http.post('http://localhost:3000/api/usuario/login', payload).subscribe((r) => {
+         this.http.post('http://localhost:3000/api/auth/login', payload).subscribe((r) => {
+            console.log(r);
             let respuesta = JSON.parse(JSON.stringify(r));
             if (respuesta.usuario.rol == 1) {
-               this.router.navigate(['/homelector'], {});
+               this.router.navigate(['/homelector']);
             } else {
                if (respuesta.usuario.rol == 2) {
-                  this.router.navigate(['/homeescritor'], {});
+                  this.router.navigate(['/homeescritor']);
                }
             }
          })
