@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
 /**ESTA PARTE TIENE QUE SER MODIFICADA PARA QUE EL SERVICIO HAGA LA PETICION DE LOS DATOS DE USUARIO */
   getUserData(id:any){
     this.profilePic="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/768px-Circle-icons-profile.svg.png"
-    this.username="Angélica Tejeda"
+    this.username="Josue Cabezas"
     this.onLibBooks=15
     this.readedBooks=12
     this.nFollowedAuthors=14

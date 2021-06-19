@@ -148,7 +148,7 @@ export class VistaEscrituraComponent implements OnInit {
 
   newSection(){
     const seccion = {
-      "obraId" : this.id ,
+      "obra" : this.id ,
       "orden": this.secciones[this.secciones.length-1].orden + 1
     }
     console.log(seccion);

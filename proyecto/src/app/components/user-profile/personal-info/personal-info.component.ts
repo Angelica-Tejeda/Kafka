@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalInfoComponent implements OnInit {
   public  user={
-    name :"Angelica Tejeda",
-    userName : "atejeda",
-    password: "1234",
-    email: "atejeda@espol.edu.ec",
-    gender: "female",
+    name :"Josue Cabezas",
+    userName : "josalcab",
+    password: "1234aaaa",
+    email: "josalcab2@espol.edu.ec",
+    gender: "male",
     dateOfBirth: "16/03/1998"
   }
   constructor() { }
