@@ -9,17 +9,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-
+  public passwordFormGroup: any;
+  public personalInfoFormGroup: any;
+  public contactInfoFormGroup: any;
+  public registerForm: any;
+  public userTypeFormGroup: any;
 
   constructor(private auth: LoginService,
     public formBuilder: FormBuilder,
     private http: HttpClient,
-    public passwordFormGroup: FormGroup,
-    public personalInfoFormGroup: FormGroup,
-    public contactInfoFormGroup: FormGroup,
-    public registerForm: FormGroup,
-    public userTypeFormGroup: FormGroup
   ) {
     this.formValidator();
   }
@@ -27,14 +25,7 @@ export class RegisterComponent implements OnInit {
 
 
   formValidator() {
-    this.registerForm = new FormGroup({
-      user: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)])),
-      passwordFormGroup: this.passwordFormGroup,
-      personalInfoFormGroup: this.personalInfoFormGroup,
-      contactInfoFormGroup: this.contactInfoFormGroup,
-      userTypeFormGroup: this.userTypeFormGroup
-    });
-
+  
     this.passwordFormGroup = this.formBuilder.group({
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       repeatPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
@@ -56,12 +47,28 @@ export class RegisterComponent implements OnInit {
     });
 
     this.userTypeFormGroup = new FormGroup({
-      lector: new FormControl(''),
-      escritor: new FormControl('')
-    })
+      tipoUser: new FormControl('')
+    });
+
+    this.registerForm = new FormGroup({
+      user: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)])),
+      passwordFormGroup: this.passwordFormGroup,
+      personalInfoFormGroup: this.personalInfoFormGroup,
+      contactInfoFormGroup: this.contactInfoFormGroup,
+      userTypeFormGroup: this.userTypeFormGroup
+    });
   }
   onSubmit() {
-
+    let payload = {
+      user : this.registerForm.value.user,
+      password: this.passwordFormGroup.value.password,
+    }
+    try {
+      this.http.post('http://localhost:3000/api/auth/signup',payload).subscribe((r)=> {
+      })
+    } catch (error) {
+      
+    }
   }
 
   ngOnInit(): void {
