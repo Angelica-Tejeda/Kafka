@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from 'src/app/services/login.service'
+import {LoginService} from 'src/app/services/login.service';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -7,7 +9,15 @@ import {LoginService} from 'src/app/services/login.service'
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private auth:LoginService) { }
+  constructor(private auth:LoginService,
+    public formBuilder: FormBuilder,
+    private http: HttpClient) { }
+
+
+
+  onSubmit(){
+
+  }
 
   ngOnInit(): void {
     $(document).ready(function() {
