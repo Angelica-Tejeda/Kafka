@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import{LoginService} from 'src/app/services/login.service'
-
+import{LoginService} from 'src/app/services/login.service';
+import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +9,35 @@ import{LoginService} from 'src/app/services/login.service'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private login:LoginService) { }
+   loginForm = new FormGroup({
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+      ])),
+      password: new FormControl('', Validators.required)
+    });
+
+  constructor(private login:LoginService,
+   private http: HttpClient) { }
+
+
+  onLogin(){
+   const { email, password } = this.loginForm.value; 
+   let payload = {
+      "correo": email,
+      "contrasena": password
+    }
+    console.log(payload);
+    try {
+       this.http.post('http://localhost:3000/api/usuario/login',payload).subscribe(r =>{})
+    } catch (error) {
+       console.log(error);
+    }
+
+  }
+
+
+
 
   ngOnInit(): void {
     $(function() {

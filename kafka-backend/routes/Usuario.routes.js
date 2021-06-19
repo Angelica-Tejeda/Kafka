@@ -1,9 +1,10 @@
 const express = require("express");
-const router = express.Router();
+const { Router } = require("express");
+const router = Router();
 const controller = require("../controllers/Usuario.controller");
 
-router.get("/", controller.getAllUsuarios);
-router.post("/", controller.createUsuario);
+router.post("/signup", controller.createUsuario);
+router.post("/login", controller.iniciarSesion);
 router.get("/", controller.getAllUsuarios);
 router.get("/:id", controller.getUsuarioById);
 router.get("/correo/:correo", controller.getUsuarioByCorreo);
