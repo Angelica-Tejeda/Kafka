@@ -157,7 +157,7 @@ export const navItems: INavData[] = [
         icon: 'icon-star'
       }
     ]
-  },
+  }/**,
   {
     name: 'Notifications',
     url: '/notifications',
@@ -179,7 +179,7 @@ export const navItems: INavData[] = [
         icon: 'icon-bell'
       }
     ]
-  },
+  }*/,
   {
     name: 'Widgets',
     url: '/widgets',
@@ -191,7 +191,7 @@ export const navItems: INavData[] = [
   },
   {
     divider: true
-  },
+  }/**,
   {
     title: true,
     name: 'Extras',
@@ -247,5 +247,5 @@ export const navItems: INavData[] = [
     icon: 'icon-layers',
     variant: 'danger',
     attributes: { target: '_blank', rel: 'noopener' }
-  }
+  }*/
 ];
