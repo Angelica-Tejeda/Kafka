@@ -12,11 +12,11 @@ import {ProfileComponent} from "./components/user-profile/profile/profile.compon
 import { from } from 'rxjs';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'homeLector',             component: HomeComponent },
-  { path: 'homeEscritor',           component: HomeComponent },
-  { path: 'vistaLectura',     component: VistaLecturaComponent },
-  { path: ':vistaEscritura/:id',     component: VistaEscrituraComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'homelector',             component: HomeComponent },
+  { path: 'homeescritor',           component: HomeComponent },
+  { path: 'vistalectura',     component: VistaLecturaComponent },
+  { path: ':vistaescritura/:id',     component: VistaEscrituraComponent },
   {path: 'formlibro', component: FormlibroComponent },
   {path: 'coleccion',component: CollectionComponent},
   { path: 'busqueda', component: BusquedaComponent},

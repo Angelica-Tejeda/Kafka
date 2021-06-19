@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import {FormlibroComponent} from './components/formlibro/formlibro.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,8 @@ import { ProfileComponent } from './components/user-profile/profile/profile.comp
 import { PersonalInfoComponent } from './components/user-profile/personal-info/personal-info.component';
 import { AboutMeComponent } from './components/user-profile/about-me/about-me.component';
 import { SubscriptionsComponent } from './components/user-profile/subscriptions/subscriptions.component';
+
+
 
 @NgModule({
   declarations: [
@@ -47,9 +50,10 @@ import { SubscriptionsComponent } from './components/user-profile/subscriptions/
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularEditorModule
   ],
-  providers: [LibroService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

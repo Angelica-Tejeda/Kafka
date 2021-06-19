@@ -19,7 +19,7 @@
     <a *ngFor="let libro of coleccion" [routerLink]="['/vistaLectura']" class="col-lg-3 col-md-4 col-sm-6">
       <img class="center" src="{{libro.imgSource}}" alt="">
       <p class="titulo-libro">{{libro.titulo}}</p>
-      <p class="genero-libro">{{libro.genero}}</p>
+      <p class="genero-libro">{{libro.autor}}</p>
     </a>
   </div>
 
