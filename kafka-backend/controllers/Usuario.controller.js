@@ -31,13 +31,14 @@ exports.createUsuario = async (req, res) => {
         })
         .catch((err) => {
             console.log("error: " + err);
-            res.json(err);
+            //res.json(err);
         });
 };
 
 exports.iniciarSesion = async (req, res) => {
     Usuario.findOne({
         where: { correo: req.body.correo },
+        attributes: [id, rol],
         //attributes: { exclude: ["contrasena"] },
     })
         .then((usuario) => {
@@ -46,7 +47,9 @@ exports.iniciarSesion = async (req, res) => {
                     msg: "El correo proporcionado no ha sido registrado.",
                 });
             } else {
-                if (bcrypt.compareSync(req.body.contrasena, usuario.contrasena)) {
+                if (
+                    bcrypt.compareSync(req.body.contrasena, usuario.contrasena)
+                ) {
                     let token = jwt.sign({ usuario: usuario }, "laweasecreta", {
                         expiresIn: "7d",
                     });
@@ -64,7 +67,7 @@ exports.iniciarSesion = async (req, res) => {
         })
         .catch((err) => {
             console.log("error: " + err);
-            res.json(err);
+            //res.json(err);
         });
 };
 
@@ -77,7 +80,7 @@ exports.getAllUsuarios = async (req, res) => {
         })
         .catch((err) => {
             console.log("error: " + err);
-            res.json(err);
+            //res.json(err);
         });
 };
 
@@ -88,7 +91,7 @@ exports.getUsuarioById = async (req, res) => {
         })
         .catch((err) => {
             console.log("error: " + err);
-            res.json(err);
+            //res.json(err);
         });
 };
 
@@ -102,7 +105,7 @@ exports.getUsuarioByCorreo = async (req, res) => {
         })
         .catch((err) => {
             console.log("error: " + err);
-            res.json(err);
+            //res.json(err);
         });
 };
 
@@ -116,7 +119,7 @@ exports.getUsuariosByRol = async (req, res) => {
         })
         .catch((err) => {
             console.log("error: " + err);
-            res.json(err);
+            //res.json(err);
         });
 };
 
@@ -140,7 +143,7 @@ exports.updateUsuario = async (req, res) => {
         })
         .catch((err) => {
             console.log("error: " + err);
-            res.json(err);
+            //res.json(err);
         });
 };
 
@@ -153,6 +156,6 @@ exports.deleteUsuario = async (req, res) => {
         })
         .catch((err) => {
             console.log("error: " + err);
-            res.json(err);
+            //res.json(err);
         });
 };
