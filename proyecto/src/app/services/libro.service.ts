@@ -3,8 +3,10 @@ import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { Libro } from '../components/collection/libro.model';
 import { SeccionService } from './seccion.service';
+import {environment} from '../../environments/environment';
 
-const api_url = "http://localhost:3000/api";
+const _apiUrl = environment.apiURL;
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,7 @@ export class LibroService {
   }
 
   getAllObras():Observable<any>{
-    return this.http.get(`${api_url}/obra`);
+    return this.http.get(`${_apiUrl}/obra`);
   }
 
 
@@ -25,12 +27,12 @@ export class LibroService {
   sendLibro(libro:any):Observable<any>{
 
 
-      return this.http.post(`${api_url}/obra`,libro);
+      return this.http.post(`${_apiUrl}/obra`,libro);
 
   }
 
   getLibroById(id:number): Observable<any>{
-    return  this.http.get(`${api_url}/obra/${id}`);
+    return  this.http.get(`${_apiUrl}/obra/${id}`);
   }
 
   get_libro_por_nombre(titulo:string): Observable<any>{

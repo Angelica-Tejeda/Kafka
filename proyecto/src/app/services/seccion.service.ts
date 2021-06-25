@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-const api_url = "http://localhost:3000/api";
+const _apiUrl = environment.apiURL;
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,20 +25,20 @@ export class SeccionService {
   }
 
   createSection(seccion:any){
-    return this.http.post(`${api_url}/seccion`,seccion);
+    return this.http.post(`${_apiUrl}/seccion`,seccion);
   }
 
   getAllSectionsByObraId(id:any){
-    return this.http.get(`${api_url}/seccion/obra/${id}`);
+    return this.http.get(`${_apiUrl}/seccion/obra/${id}`);
   }
 
   updateSection(section:any,id:any){
-    return this.http.patch(`${api_url}/seccion/${id}`,section);
+    return this.http.patch(`${_apiUrl}/seccion/${id}`,section);
   }
 
   get_seccion_id(id:number): Observable<any>{
 
-    return  this.http.get(`${api_url}/seccion/${id}`);
+    return  this.http.get(`${_apiUrl}/seccion/${id}`);
 
   }
 
@@ -47,13 +49,13 @@ export class SeccionService {
       contenido:contenido
     }
 
-    return this.http.patch(`${api_url}/seccion/${id}`,seccion);
+    return this.http.patch(`${_apiUrl}/seccion/${id}`,seccion);
 
   }
 
   getAllSectionsFromBookId(id:number):Observable<any>{
 
-    return this.http.get(`${api_url}/seccion/obra/${id}`);
+    return this.http.get(`${_apiUrl}/seccion/obra/${id}`);
 
   }
 
