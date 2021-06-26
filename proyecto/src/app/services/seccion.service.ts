@@ -20,7 +20,7 @@ export class SeccionService {
         obraid: obraid,
         block: block
       }
-    return this.http.post(`http://localhost:3000/api/seccion`,seccion)
+    return this.http.post(`${_apiUrl}/api/seccion`,seccion)
 
   }
 

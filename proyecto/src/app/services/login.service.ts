@@ -17,6 +17,6 @@ export class LoginService {
     return this.http.get(`${_apiUrl}/${user}`);
   }
   /*register():Observable<any>{
-    return this.http.post("http://localhost:3000/api/login/register");
+    return this.http.post(`${_apiUrl}/login/register`);
   }*/
 }

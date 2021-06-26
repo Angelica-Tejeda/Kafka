@@ -3,6 +3,10 @@ import { LoginService } from 'src/app/services/login.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { RegistrationValidator } from './registration_validator';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+const _apiUrl = environment.apiURL;
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -64,7 +68,7 @@ export class RegisterComponent implements OnInit {
       password: this.passwordFormGroup.value.password,
     }
     try {
-      this.http.post('http://localhost:3000/api/auth/signup',payload).subscribe((r)=> {
+      this.http.post(`${_apiUrl}/auth/signup`,payload).subscribe((r)=> {
       })
     } catch (error) {
       

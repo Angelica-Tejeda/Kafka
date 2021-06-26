@@ -3,6 +3,10 @@ import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+const _apiUrl = environment.apiURL;
+
 @Component({
    selector: 'app-login',
    templateUrl: './login.component.html',
@@ -32,7 +36,7 @@ export class LoginComponent implements OnInit {
       }
       console.log(payload);
       try {
-         this.http.post('http://localhost:3000/api/auth/login', payload).subscribe((r) => {
+         this.http.post(`${_apiUrl}/auth/login`, payload).subscribe((r) => {
             console.log(r);
             let respuesta = JSON.parse(JSON.stringify(r));
             if (respuesta.usuario.rol == 1) {

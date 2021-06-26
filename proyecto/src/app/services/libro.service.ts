@@ -3,7 +3,7 @@ import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { Libro } from '../components/collection/libro.model';
 import { SeccionService } from './seccion.service';
-import {environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
 
 const _apiUrl = environment.apiURL;
 
@@ -36,6 +36,6 @@ export class LibroService {
   }
 
   get_libro_por_nombre(titulo:string): Observable<any>{
-    return  this.http.get(`http://localhost:3000/api/libro/${titulo}`);
+    return  this.http.get(`${_apiUrl}/libro/${titulo}`);
   }
 }
