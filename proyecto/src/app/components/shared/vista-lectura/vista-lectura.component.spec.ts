@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { VistaLecturaComponent } from './vista-lectura.component';
+import {VistaLecturaComponent} from './vista-lectura.component';
 
 describe('VistaLecturaComponent', () => {
   let component: VistaLecturaComponent;
@@ -8,9 +8,9 @@ describe('VistaLecturaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VistaLecturaComponent ]
+      declarations: [VistaLecturaComponent],
     })
-    .compileComponents();
+        .compileComponents();
   });
 
   beforeEach(() => {
