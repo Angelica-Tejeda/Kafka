@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
        'correo': email,
        'contrasena': password,
      };
-     console.log(payload);
+     //console.log(payload);
      try {
        this.http.post(`${_apiUrl}/auth/login`, payload).subscribe((r) => {
          console.log(r);

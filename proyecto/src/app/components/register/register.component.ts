@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginService} from 'src/app/services/login.service';
+import {Router} from '@angular/router';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {RegistrationValidator} from './registration_validator';
 import {HttpClient} from '@angular/common/http';
@@ -19,9 +20,11 @@ export class RegisterComponent implements OnInit {
   public registerForm: any;
   public userTypeFormGroup: any;
 
-  constructor(private auth: LoginService,
+  constructor(
+    private auth: LoginService,
     public formBuilder: FormBuilder,
     private http: HttpClient,
+    private router: Router
   ) {
     this.formValidator();
   }
@@ -62,14 +65,23 @@ export class RegisterComponent implements OnInit {
   }
   onSubmit() {
     const payload = {
-      user: this.registerForm.value.user,
-      password: this.passwordFormGroup.value.password,
+      'nombre_usuario': this.registerForm.value.user,
+      'correo': this.contactInfoFormGroup.value.email,
+      'contrasena': this.passwordFormGroup.value.password,
+      'nombre': this.personalInfoFormGroup.value.nombre,
+      'apellido': this.personalInfoFormGroup.value.apellido,
+      'fecha_nacimiento': this.personalInfoFormGroup.value.fech_nac
     };
     try {
       this.http.post(`${_apiUrl}/auth/signup`, payload).subscribe((r)=> {
+        console.log(r);
+        const respuesta = JSON.parse(JSON.stringify(r));
+         if (respuesta.usuario.rol == 1) {
+           this.router.navigate(['/login']);
+         }
       });
     } catch (error) {
-
+        console.log(error);
     }
   }
 
