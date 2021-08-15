@@ -1,4 +1,5 @@
 const Obra = require('../database/models/Obra');
+const Usuario = require('../database/models/Usuario');
 
 exports.createObra = async (req, res) => {
   Obra.create({
@@ -20,7 +21,12 @@ exports.createObra = async (req, res) => {
 };
 
 exports.getAllObras = async (req, res) => {
-  Obra.findAll()
+  Obra.findAll({
+    include: [{ 
+      model: Usuario,
+      attributes: ['nombre', 'apellido'],
+    }]
+  })
       .then((obras) => {
         res.json(obras);
       })

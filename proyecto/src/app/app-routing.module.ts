@@ -14,17 +14,18 @@ import { UsuariosComponent } from './components/admin/usuarios/usuarios.componen
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'homelector', component: HomeComponent},
-  {path: 'homeescritor', component: HomeComponent},
+  {path: 'homelector', component: HomeComponent},//
+  {path: 'homeescritor', component: HomeComponent},//
   {path: 'vistalectura', component: VistaLecturaComponent},
-  {path: ':vistaescritura/:id', component: VistaEscrituraComponent},
-  {path: 'formlibro', component: FormlibroComponent},
-  {path: 'coleccion', component: CollectionComponent},
-  {path: 'busqueda', component: BusquedaComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'usuarios', component: UsuariosComponent}
+  {path: 'vistaescritura/:id', component: VistaEscrituraComponent},
+  {path: 'formlibro', component: FormlibroComponent},//
+  {path: 'coleccion', component: CollectionComponent},//
+  {path: 'busqueda', component: BusquedaComponent},//
+  {path: 'busqueda/:texto', component: BusquedaComponent},//
+  {path: 'login', component: LoginComponent},//
+  {path: 'register', component: RegisterComponent},//
+  {path: 'profile', component: ProfileComponent},//
+  {path: 'usuarios', component: UsuariosComponent}//
 ];
 
 @NgModule({

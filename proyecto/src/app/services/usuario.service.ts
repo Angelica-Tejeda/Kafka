@@ -30,4 +30,8 @@ export class UsuarioService {
     return this.http.get(`${_apiUrl}/usuario`);
   }
 
+  getUserById(id:number): Observable<any> {
+    return this.http.get(`${_apiUrl}/usuario/${id}`);
+  }
+
 }

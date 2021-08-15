@@ -5,6 +5,7 @@ h2 {
 img {
   height: 290px;
   border: 2px solid #F2EFEA;
+  cursor: pointer;
 }
 
 .titulo-libro {
@@ -22,11 +23,36 @@ a {
   transition: transform .2s;
   text-align: center;
   margin: 20px 0;
+  position: relative;
 }
 
 a:hover {
   text-decoration: none;
   transform: scale(1.1);
+}
+
+.boton-guardar {
+  font-size: 30px;
+  position: absolute;
+  right: 55px;
+  cursor: pointer;
+}
+
+.color1 {
+  color: black;
+  display: none;
+}
+
+a:hover .color1 {
+  display: unset;
+}
+
+.color1:hover {
+  color: rgb(255, 0, 76);
+}
+
+.color2 {
+  color: rgb(255, 0, 76);
 }
 
 .btn-editar{

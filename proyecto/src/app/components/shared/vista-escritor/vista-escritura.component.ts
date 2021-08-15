@@ -71,13 +71,18 @@ export class VistaEscrituraComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Este es el id '+ this.id);
+    if (localStorage.getItem('token') == null) {
+      this.router.navigate(['login']);
+    } else {
+      console.log('Este es el id '+ this.id);
 
-    this.get_libro();
+      this.get_libro();
 
-    this.tipo = localStorage.getItem('rol')? String(localStorage.getItem('rol')) : "1" ;
+      this.tipo = localStorage.getItem('rol')? String(localStorage.getItem('rol')) : "1" ;
 
-    this.config.editable = this.tipo=='2'? true:false;
+      this.config.editable = this.tipo=='2'? true:false;
+    }
+    
     // this.get_libro();
   }
 
@@ -91,7 +96,7 @@ export class VistaEscrituraComponent implements OnInit {
 
   get_libro() {
     this.libroS.getLibroById(this.id).subscribe((obra) => {
-      if (obra) {
+      if (obra /*&& obra.escritor == localStorage.getItem('id_user')*/) {
         this.titulolibro = obra.titulo;
         console.log(obra);
         this.get_secciones();
@@ -101,6 +106,7 @@ export class VistaEscrituraComponent implements OnInit {
         }, 500);
       } else {
         console.log('No se trajo info');
+        this.router.navigate(['coleccion']);
       }
     });
   }

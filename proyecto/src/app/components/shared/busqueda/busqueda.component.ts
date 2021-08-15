@@ -2,7 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LibroService} from 'src/app/services/libro.service';
-import {Router} from '@angular/router';
+import {UsuarioService} from 'src/app/services/usuario.service';
+import {BibliotecaService} from 'src/app/services/biblioteca.service';
+//import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import { forEachChild } from 'typescript';
 
 @Component({
   selector: 'app-busqueda',
@@ -12,78 +16,52 @@ import {Router} from '@angular/router';
 })
 export class BusquedaComponent implements OnInit {
   // posts: any;
-  constructor(private location: Location, private formbuilder: FormBuilder, private libroService: LibroService,
-    private router: Router) { }
+  texto:string = '';
+  libros: any[] = [];
+  bib: any[] = [];
+  constructor(private location: Location, private formbuilder: FormBuilder, private librosS:LibroService, private userS: UsuarioService,  private bibS:BibliotecaService, private router: Router, private route: ActivatedRoute) {
+      this.route.params.subscribe(({texto})=>{
+        this.texto = texto;
+      });
+    }
 
   filterPost = '';
 
-  posts = [
-    {
-      'src': '../../../../assets/img/principito.jpg',
-      'titulo': 'El principito',
-      'autor': 'Antoine de Saint-Exupéry',
-    },
-    {
-      'src': '../../../../assets/img/metamorfosisPortada.jpg',
-      'titulo': 'La Metamorfosis',
-      'autor': 'Franz Kafka',
-    },
-    {
-      'src': '../../../../assets/img/dracula.jpg',
-      'titulo': 'Drácula',
-      'autor': 'Bram Stoker',
-    },
-    {
-      'src': '../../../../assets/img/cuervo.jpg',
-      'titulo': 'El cuervo',
-      'autor': 'Edgar Allan Poe',
-    },
-    {
-      'src': '../../../../assets/img/resplandor.jpg',
-      'titulo': 'El resplandor',
-      'autor': 'Stephen King',
-    }, {
-      'src': '../../../../assets/img/caminante.jpg',
-      'titulo': 'El caminante y su sombra',
-      'autor': 'Friedrich Nietzsche',
-    },
-    {
-      'src': '../../../../assets/img/goblet.jpg',
-      'titulo': 'Harry Potter y el cáliz de fuego',
-      'autor': 'J.K Rowling',
-    },
-    {
-      'src': '../../../../assets/img/cianuro.jpg',
-      'titulo': 'Cianuro Espumoso',
-      'autor': 'Agatha Cristhie',
-    },
-    {
-      'src': '../../../../assets/img/estudio-en-escarlata.jpg',
-      'titulo': 'Estudio en escarlata',
-      'autor': 'Arthur Conan Doyle',
-    },
-    {
-      'src': '../../../../assets/img/inferno.jpg',
-      'titulo': 'Inferno',
-      'autor': 'Dan Brown',
-    },
-    {
-      'src': '../../../../assets/img/psico.jpg',
-      'titulo': 'El psicoanalista',
-      'autor': 'John Katzenbach',
-    },
-    {
-      'src': '../../../../assets/img/contacto.jpg',
-      'titulo': 'Contacto',
-      'autor': 'Carl Sagan',
-    },
-  ]
-  /*
-    busqueda(){
-      this.posts= LibroService.get_libro_por_nombre();
-  } */
-
-
   ngOnInit(): void {
+    if (localStorage.getItem('token') == null) {
+      this.router.navigate(['login']);
+    } else {
+      if (this.texto != undefined) {
+        this.filterPost = this.texto;
+      }
+      this.librosS.getAllObras().subscribe((res:any)=>{
+        if (res) {
+          this.libros = res;
+        }
+      });
+      this.bibS.getBibliotecas().subscribe((res:any)=>{
+        if (res) {
+          this.bib = res;
+        }
+      });
+    }
   }
+
+  guardarBib(id:number): void {
+    this.bibS.createBiblioteca(id).subscribe((res) => {
+      console.log(res);
+    });
+    window.location.reload();
+  }
+
+  isInBib(id:number) {
+    var bool:Boolean = false;
+    this.bib.forEach(element => {              
+      if (element.obraId == id) {
+        bool = true;
+      }
+    });
+    return bool;
+  }
+
 }

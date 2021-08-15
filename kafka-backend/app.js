@@ -3,6 +3,7 @@ const app = express();
 const sequelize = require('./database/db');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('./database/associations');
 
 // Configuracion
 const PORT = process.env.PORT || 3000;

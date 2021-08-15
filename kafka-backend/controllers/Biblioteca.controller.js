@@ -1,9 +1,11 @@
 const Biblioteca = require('../database/models/Biblioteca');
+const Obra = require('../database/models/Obra');
+const Usuario = require('../database/models/Usuario');
 
 exports.createBiblioteca = async (req, res) => {
   Biblioteca.create({
-    usuario: req.body.usuario,
-    obra: req.body.obra,
+    usuarioId: req.body.usuarioId,
+    obraId: req.body.obraId,
   })
       .then((biblioteca) => {
         res.json(biblioteca);
@@ -38,7 +40,15 @@ exports.getBibliotecaById = async (req, res) => {
 
 exports.getBibliotecasByUsuario = async (req, res) => {
   Biblioteca.findAll({
-    where: {usuario: req.params.usuario},
+    where: {usuarioId: req.params.usuarioId},
+    include: [{ 
+      model: Obra,
+      attributes: ['titulo', 'portada'],
+      include: [{
+        model: Usuario,
+        attributes: ['nombre', 'apellido']
+      }]
+    }]
   })
       .then((bibliotecas) => {
         res.json(bibliotecas);

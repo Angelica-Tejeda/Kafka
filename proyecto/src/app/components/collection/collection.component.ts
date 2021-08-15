@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {LibroService} from 'src/app/services/libro.service';
-import {Libro} from './libro.model';
+import {BibliotecaService} from 'src/app/services/biblioteca.service';
 
 @Component({
   selector: 'app-collection',
@@ -11,20 +10,27 @@ import {Libro} from './libro.model';
 export class CollectionComponent implements OnInit {
   coleccion: any[] = [];
 
-  constructor(private router: Router, private librosS:LibroService) {
+  constructor(private router: Router, private bibS:BibliotecaService) {
 
   }
 
   ngOnInit(): void {
-    this.librosS.getAllObras().subscribe((res:any)=>{
-      if (res) {
-        this.coleccion = res;
-      }
+    if (localStorage.getItem('token') == null) {
+      this.router.navigate(['login']);
+    } else {
+      this.bibS.getBibliotecas().subscribe((res:any)=>{
+        if (res) {
+          this.coleccion = res;
+        }
+      });
+    }
+  }
+
+  eliminarBib(id:number): void {
+    this.bibS.eliminarBiblioteca(id).subscribe((res) => {
+      console.log(res);
     });
+    window.location.reload();
   }
 
-
-  editar() {
-    this.router.navigate(['vistaEscritura']);
-  }
 }

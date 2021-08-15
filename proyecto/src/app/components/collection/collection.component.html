@@ -7,19 +7,20 @@
   </h2>
   <!--<div class="books-container">
     <div  class="row">
-        <div *ngFor="let libro of coleccion" class="col-xl-3 col-lg-3 book col-md-3">
+        <div *ngFor="let bib of coleccion" class="col-xl-3 col-lg-3 book col-md-3">
           <img src="../../../assets/img/metamorfosisPortada.jpg" alt="">
-          <p class="titulo-libro"> {{libro.titulo}} </p>
-          <p class="genero-libro"> {{libro.genero}} </p>
+          <p class="titulo-bib"> {{bib.titulo}} </p>
+          <p class="genero-bib"> {{bib.genero}} </p>
           <button type="submit" class="btn-editar" (click)="editar()">Continuar</button>
         </div>
     </div>
   </div>-->
   <div class="mt-1 row">
-    <a *ngFor="let libro of coleccion" [routerLink]="['/vistaescritura', libro.id]" class="col-lg-3 col-md-4 col-sm-6">
-      <img class="center" src="{{libro.portada}}" alt="">
-      <p class="titulo-libro">{{libro.titulo}}</p>
-      <p class="genero-libro">{{libro.anio_publicacion}}</p>
+    <a *ngFor="let bib of coleccion" id="{{bib.id}}" class="col-lg-3 col-md-4 col-sm-6">
+      <p class="boton-guardar" (click)="eliminarBib(bib.id)"><i class="fas fa-times color1"></i></p>
+      <img class="center" [routerLink]="['/vistaescritura', bib.obraId]" src="{{bib.obra.portada}}" alt="">
+      <p class="titulo-libro">{{bib.obra.titulo}}</p>
+      <p class="autor-libro">{{bib.obra.usuario.nombre}} {{bib.obra.usuario.apellido}}</p>
     </a>
   </div>
 

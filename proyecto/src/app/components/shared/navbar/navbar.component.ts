@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   constructor(public location: Location, private element : ElementRef, public router : Router) {
     this.sidebarVisible = false;
   }
-
+  textbusqueda = '';
   ngOnInit() {
     const navbar: HTMLElement = this.element.nativeElement;
     this.tipo = localStorage.getItem('rol')? String(localStorage.getItem('rol')) : "1" ;
@@ -52,5 +52,9 @@ export class NavbarComponent implements OnInit {
   }
   limpiarStorage(){
     localStorage.clear();
+  }
+  onSubmit() {
+
+    this.router.navigate(['/busqueda/'+this.textbusqueda]);
   }
 }

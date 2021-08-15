@@ -28,16 +28,21 @@ export class FormlibroComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getGeneros();
+    if (localStorage.getItem('token') == null) {
+      this.router.navigate(['login']);
+    } else {
+      this.getGeneros();
 
-    this.libroForm = this.formbuilder.group({
-      titulo: ['', Validators.required],
-      sinopsis: ['',Validators.required],
-      genero: ['', Validators.required],
-      clasificacion: ['', Validators.required],
-      exclusivo: ['',Validators.required]
+      this.libroForm = this.formbuilder.group({
+        titulo: ['', Validators.required],
+        sinopsis: ['',Validators.required],
+        genero: ['', Validators.required],
+        clasificacion: ['', Validators.required],
+        exclusivo: ['',Validators.required]
 
-    });
+      });
+    }
+
   }
 
 

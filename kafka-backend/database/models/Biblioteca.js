@@ -11,7 +11,7 @@ Biblioteca.init(
         primaryKey: true,
         autoIncrement: true,
       },
-      usuario: {
+      usuarioId: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
         references: {
@@ -19,7 +19,7 @@ Biblioteca.init(
           key: 'id',
         },
       },
-      obra: {
+      obraId: {
         type: Sequelize.BIGINT,
         allowNull: false,
         references: {

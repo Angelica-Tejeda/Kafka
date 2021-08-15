@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -13,11 +14,15 @@ export class ProfileComponent implements OnInit {
   readedBooks:any;
   nFollowedAuthors:any;
   nSuscribedAuthors:any;
-  constructor(private UserS: UsuarioService) { }
+  constructor(private router: Router, private UserS: UsuarioService) { }
 
   ngOnInit(): void {
-    this.getUserData(5);
-    this.getUserInfo();
+    if (localStorage.getItem('token') == null) {
+      this.router.navigate(['login']);
+    } else {
+      this.getUserData(5);
+      this.getUserInfo();
+    }
   }
   /** ESTA PARTE TIENE QUE SER MODIFICADA PARA QUE EL SERVICIO HAGA LA PETICION DE LOS DATOS DE USUARIO */
   getUserData(id:any) {
