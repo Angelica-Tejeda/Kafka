@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
+  tipo:string = '';
 
   constructor(public location: Location, private element : ElementRef, public router : Router) {
     this.sidebarVisible = false;
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     const navbar: HTMLElement = this.element.nativeElement;
+    this.tipo = localStorage.getItem('rol')? String(localStorage.getItem('rol')) : "1" ;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
   }
   sidebarOpen() {
@@ -47,5 +49,8 @@ export class NavbarComponent implements OnInit {
     } else {
       this.sidebarClose();
     }
+  }
+  limpiarStorage(){
+    localStorage.clear();
   }
 }

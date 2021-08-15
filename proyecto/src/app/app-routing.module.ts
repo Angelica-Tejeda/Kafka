@@ -10,6 +10,7 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {ProfileComponent} from './components/user-profile/profile/profile.component';
 import {from} from 'rxjs';
+import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'usuarios', component: UsuariosComponent}
 ];
 
 @NgModule({

@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {environment} from 'src/environments/environment';
+import { Usuario } from 'src/app/interfaces/usuario.interface';
 
 const _apiUrl = environment.apiURL;
 
@@ -38,7 +39,10 @@ export class LoginComponent implements OnInit {
        this.http.post(`${_apiUrl}/auth/login`, payload).subscribe((r) => {
          console.log(r);
          const respuesta = JSON.parse(JSON.stringify(r));
-         if (respuesta.usuario.rol == 1) {
+         localStorage.setItem('token',respuesta.token);
+         localStorage.setItem('rol',respuesta.usuario.rol);
+         localStorage.setItem('id_user',respuesta.usuario.id);
+         if (respuesta.usuario.rol == 1 || respuesta.usuario.rol == 3) {
            this.router.navigate(['/homelector']);
          } else {
            if (respuesta.usuario.rol == 2) {

@@ -23,6 +23,7 @@ import {ProfileComponent} from './components/user-profile/profile/profile.compon
 import {PersonalInfoComponent} from './components/user-profile/personal-info/personal-info.component';
 import {AboutMeComponent} from './components/user-profile/about-me/about-me.component';
 import {SubscriptionsComponent} from './components/user-profile/subscriptions/subscriptions.component';
+import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import {SubscriptionsComponent} from './components/user-profile/subscriptions/su
     PersonalInfoComponent,
     AboutMeComponent,
     SubscriptionsComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,

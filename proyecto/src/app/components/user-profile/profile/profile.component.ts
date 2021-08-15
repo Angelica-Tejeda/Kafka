@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,10 +13,11 @@ export class ProfileComponent implements OnInit {
   readedBooks:any;
   nFollowedAuthors:any;
   nSuscribedAuthors:any;
-  constructor() { }
+  constructor(private UserS: UsuarioService) { }
 
   ngOnInit(): void {
     this.getUserData(5);
+    this.getUserInfo();
   }
   /** ESTA PARTE TIENE QUE SER MODIFICADA PARA QUE EL SERVICIO HAGA LA PETICION DE LOS DATOS DE USUARIO */
   getUserData(id:any) {
@@ -56,4 +58,14 @@ export class ProfileComponent implements OnInit {
     $('#nav-op-2').removeClass('active');
     $('#nav-op-3').addClass('active');
   }
+
+  getUserInfo(){
+    this.UserS.getUserInfo().subscribe((data)=>{
+      const info = JSON.parse(JSON.stringify(data));
+      console.log(info);
+    })
+  }
+
+
+
 }

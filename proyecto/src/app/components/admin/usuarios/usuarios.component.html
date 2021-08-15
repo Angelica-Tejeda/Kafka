@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="row"><div class="col-lg-12">
+  <div style="background-color:black;" class="card">
+      <div style="background-color: #A05344;" class="card-body">
+          <h4 class="card-title">Usuarios</h4>
+          <h6 class="card-subtitle">Add class</h6>
+          <div class="table-responsive">
+              <table  class="table">
+                  <thead>
+                      <tr>
+                          <th>id</th>
+                          <th>Usuario</th>
+                          <th>Biografia</th>
+                          <th>correo</th>
+                          <th>Role</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let user of usuarios">
+                          <td>{{user.id}}</td>
+                          <td>{{user.nombre_usuario}}</td>
+                          <td>{{user.bio}}</td>
+                          <td>{{user.correo}}</td>
+                          <td><span class="label label-danger">{{user.rol}}</span> </td>
+                      </tr>
+
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div></div>
+

@@ -6,12 +6,12 @@
             <div class="img-container"><img class='portadaObra' src="../../../../assets/img/metamorfosisPortada.jpg" alt="Portada de la obra"></div>
             <div class="datosObra-container">
                 <p class="titulo">{{titulolibro}}</p>
-                <ul style="width: 200px; height: 200px; overflow: auto" class="lista-capitulos">
+                <ul style="width: 200px; height: 9rem; overflow: auto" class="lista-capitulos">
                     <li *ngFor="let seccion of secciones; let i=index" class="pointer" (click)="change(i)">
                       {{seccion.titulo? seccion.titulo :'Agrege un titulo'}}
                     </li>
                 </ul>
-                <button (click)="newSection()" class="btn btn-danger">Agregar</button>
+                <button [hidden]="tipo!='2'" style="margin-top: .25rem;" (click)="newSection()" class="btn btn-danger">Agregar</button>
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@
 
         </div>
 
-        <textarea [value]="tituloCap" #titulo (keyup)="saveTitle(titulo.value)" class="area" placeholder="Titulo del capítulo." id="capitulo"></textarea>
+        <textarea [readonly]="tipo!='2'" [value]="tituloCap" #titulo (keyup)="saveTitle(titulo.value)" class="area" placeholder="Titulo del capítulo." id="capitulo"></textarea>
 
         <!-- <textarea [value]="contenidoarea" #contenido class="area" placeholder="Comienza tu historia." id="descripcion"></textarea> -->
         <angular-editor  #content (keyup)="saveContent()" [config]="config"  [(ngModel)]="contenidoCap"></angular-editor>

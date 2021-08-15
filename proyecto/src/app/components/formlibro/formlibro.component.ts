@@ -5,6 +5,7 @@ import {Location} from '@angular/common';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LibroService} from 'src/app/services/libro.service';
 import {Router} from '@angular/router';
+import { GeneroService } from 'src/app/services/genero.service';
 
 
 @Component({
@@ -16,23 +17,26 @@ import {Router} from '@angular/router';
 export class FormlibroComponent implements OnInit {
   libroForm: any;
   id:any;
-  generos: Genero[] = [new Genero('Terror', 1), new Genero('Comedia', 2), new Genero('Policial', 3)];
-  clasificacion = ['Todo Público', 'Mayores de 18 años'];
+  generos: Genero[] = [];
+  clasificacion = ['Todo Público', '+18'];
   idioma = ['Español', 'Ingles', 'Frances'];
   url='../../assets/img/metamorfosisPortada.jpg';
 
 
   constructor(private location:Location, private formbuilder:FormBuilder, private libroService:LibroService,
-    private router: Router, private seccionS:SeccionService) { }
+    private router: Router, private seccionS:SeccionService, private genS: GeneroService) { }
 
 
   ngOnInit(): void {
+    this.getGeneros();
+
     this.libroForm = this.formbuilder.group({
       titulo: ['', Validators.required],
-      sinopsis: [''],
+      sinopsis: ['',Validators.required],
       genero: ['', Validators.required],
       clasificacion: ['', Validators.required],
-      idioma: ['', Validators.required],
+      exclusivo: ['',Validators.required]
+
     });
   }
 
@@ -43,9 +47,9 @@ export class FormlibroComponent implements OnInit {
       'titulo': data.titulo,
       'sinopsis': data.sinopsis,
       'genero': data.genero,
-      'adulto': data.genero==='Todo Público'? 0 : 1,
-      'escritor': 5,
-      'exclusivo': 0,
+      'adulto': data.clasificacion==='Todo Público'? 0 : 1,
+      'escritor': Number(localStorage.getItem('id_user')),
+      'exclusivo': data.exclusivo,
       'anio_publicacion': (new Date()).getFullYear(),
 
 
@@ -57,7 +61,7 @@ export class FormlibroComponent implements OnInit {
         console.log(res.id);
         console.log(data);
         const seccion = {
-          'obraId': data.id,
+          'obra': data.id,
           'orden': 0,
         };
         console.log(seccion);
@@ -77,5 +81,16 @@ export class FormlibroComponent implements OnInit {
 
   atras() {
     this.location.back();
+  }
+
+  getGeneros(){
+    this.genS.getAllGenres().subscribe((data:Genero[])=>{
+      this.generos = data;
+      console.log(data);
+    })
+  }
+
+  checkError = (controlName: string, errorName: string) => {
+    return this.libroForm.controls[controlName].hasError(errorName);
   }
 }

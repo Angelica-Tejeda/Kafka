@@ -19,6 +19,7 @@ export class VistaEscrituraComponent implements OnInit {
   tituloCap:string='';
   contenidoCap:string='';
   titulolibro:string='';
+  tipo:string='';
 
 
   config: AngularEditorConfig = {
@@ -27,7 +28,7 @@ export class VistaEscrituraComponent implements OnInit {
     height: '25rem',
     minHeight: '23rem',
     minWidth: '100%',
-    placeholder: 'Enter text here...',
+    placeholder: 'Empieza tu historia',
     translate: 'no',
     defaultParagraphSeparator: 'p',
     defaultFontName: 'Arial',
@@ -74,6 +75,9 @@ export class VistaEscrituraComponent implements OnInit {
 
     this.get_libro();
 
+    this.tipo = localStorage.getItem('rol')? String(localStorage.getItem('rol')) : "1" ;
+
+    this.config.editable = this.tipo=='2'? true:false;
     // this.get_libro();
   }
 
