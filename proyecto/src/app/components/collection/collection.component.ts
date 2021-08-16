@@ -35,6 +35,7 @@ export class CollectionComponent implements OnInit {
         if (res) {
           this.escritos = res;
           if (this.escritos.length > 0) {
+            console.log(this.escritos)
             this.escritosVacio = false;
           }
         }
