@@ -31,7 +31,15 @@ export class LibroService {
     return this.http.get(`${_apiUrl}/obra/${id}`);
   }
 
+  getLibroByEscritor(id:number): Observable<any> {
+    return this.http.get(`${_apiUrl}/obra/escritor/${id}`);
+  } 
+
   get_libro_por_nombre(titulo:string): Observable<any> {
     return this.http.get(`${_apiUrl}/libro/${titulo}`);
   }
+
+  deleteLibro(id:number): Observable<any> {
+    return this.http.delete(`${_apiUrl}/obra/${id}`);
+  } 
 }

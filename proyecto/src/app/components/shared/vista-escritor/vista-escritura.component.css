@@ -87,7 +87,7 @@ textarea.area {
 textarea#capitulo {
     text-align: center;
     font-size: 200%;
-    flex-basis: calc(15%);
+    flex-basis: calc(6%);
 }
 
 textarea#descripcion {

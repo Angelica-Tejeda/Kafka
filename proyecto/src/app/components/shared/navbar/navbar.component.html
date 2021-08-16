@@ -28,10 +28,11 @@
             </li>
             <li class="nav-item my-auto ml-lg-5 dropdown">
                 <a class="nav-link" [routerLink]="['./']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="foto-usuario" src="../../../../assets/img/profile-placeholder.png" alt="Perfil">
+                    <img class="foto-usuario" src="{{usuario.foto}}" alt="Perfil">
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" [routerLink]="['/profile']">Ver perfil</a>
+                    <div *ngIf="tipo=='3'" class="dropdown-divider"></div>
                     <a *ngIf="tipo=='3'" class="dropdown-item" [routerLink]="['/usuarios']">Administrar Usuarios</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" (click)="limpiarStorage()" [routerLink]="['/login']">Cerrar sesión</a>

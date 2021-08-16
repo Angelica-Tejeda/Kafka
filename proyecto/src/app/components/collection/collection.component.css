@@ -18,7 +18,7 @@ p {
   margin: 0;
 }
 
-a {
+a.libro {
   color: #F0EDE8;
   transition: transform .2s;
   text-align: center;
@@ -26,7 +26,7 @@ a {
   position: relative;
 }
 
-a:hover {
+a.libro:hover {
   text-decoration: none;
   transform: scale(1.1);
 }
@@ -43,7 +43,7 @@ a:hover {
   display: none;
 }
 
-a:hover .color1 {
+a.libro:hover .color1 {
   display: unset;
 }
 
@@ -69,4 +69,16 @@ a:hover .color1 {
   position: absolute;
   right: 5%;
   bottom: -8%;
+}
+
+.anuncio {
+  font-size: 20px;
+  margin-top: 20px!important;
+  padding: 50px;
+  text-align: center;
+  border: 1px solid #E79E4F;
+}
+
+a.nav-link {
+  color: #E79E4F;
 }

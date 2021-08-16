@@ -5,6 +5,7 @@ import {SeccionService} from 'src/app/services/seccion.service';
 import {Seccion} from './seccion.model';
 import {LibroService} from 'src/app/services/libro.service';
 import {AngularEditorConfig} from '@kolkov/angular-editor';
+import { getConfigFileParsingDiagnostics } from 'typescript';
 
 
 @Component({
@@ -19,10 +20,69 @@ export class VistaEscrituraComponent implements OnInit {
   tituloCap:string='';
   contenidoCap:string='';
   titulolibro:string='';
+  portadaurl:string='';
+  escritor:string='';
   tipo:string='';
 
-
-  config: AngularEditorConfig = {
+  configF: AngularEditorConfig = {
+    editable: false,
+    spellcheck: true,
+    height: '25rem',
+    minHeight: '23rem',
+    minWidth: '100%',
+    placeholder: 'Empieza tu historia',
+    translate: 'no',
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    sanitize: false,
+    toolbarHiddenButtons: [
+      ['undo',
+      'redo',
+      'bold',
+      'italic',
+      'underline',
+      'strikeThrough',
+      'subscript',
+      'superscript',
+      'justifyLeft',
+      'justifyCenter',
+      'justifyRight',
+      'justifyFull',
+      'indent',
+      'outdent',
+      'insertUnorderedList',
+      'insertOrderedList',
+      'heading',
+      'fontName',
+      'fontSize',
+      'textColor',
+      'backgroundColor',
+      'customClasses',
+      'link',
+      'unlink',
+      'insertImage',
+      'insertVideo',
+      'insertHorizontalRule',
+      'removeFormat',
+      'toggleEditorMode'],
+    ],
+    customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText',
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ],
+  };
+  configT: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
     height: '25rem',
@@ -80,12 +140,19 @@ export class VistaEscrituraComponent implements OnInit {
 
       this.tipo = localStorage.getItem('rol')? String(localStorage.getItem('rol')) : "1" ;
 
-      this.config.editable = this.tipo=='2'? true:false;
+      //this.config.editable = this.tipo=='2'? true:false;
     }
     
     // this.get_libro();
   }
 
+  editable() {
+    if (this.escritor == localStorage.getItem('id_user')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   get_secciones() {
     this.seccionS.getAllSectionsByObraId(this.id).subscribe((data:any)=>{
@@ -98,6 +165,8 @@ export class VistaEscrituraComponent implements OnInit {
     this.libroS.getLibroById(this.id).subscribe((obra) => {
       if (obra /*&& obra.escritor == localStorage.getItem('id_user')*/) {
         this.titulolibro = obra.titulo;
+        this.portadaurl = obra.portada;
+        this.escritor = obra.escritor;
         console.log(obra);
         this.get_secciones();
         setTimeout(()=>{

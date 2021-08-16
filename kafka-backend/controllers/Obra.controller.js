@@ -50,6 +50,10 @@ exports.getObraById = async (req, res) => {
 exports.getObrasByEscritor = async (req, res) => {
   Obra.findAll({
     where: {escritor: req.params.escritor},
+    include: [{ 
+      model: Usuario,
+      attributes: ['nombre', 'apellido'],
+    }]
   })
       .then((obras) => {
         res.json(obras);

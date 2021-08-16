@@ -37,6 +37,7 @@ export class BusquedaComponent implements OnInit {
       this.librosS.getAllObras().subscribe((res:any)=>{
         if (res) {
           this.libros = res;
+          console.log(res);
         }
       });
       this.bibS.getBibliotecas().subscribe((res:any)=>{

@@ -3,7 +3,7 @@
     <div class="sidebar">
         <div type="submit" class="container-volver" (click)="atras()"><i class="far fa-arrow-alt-circle-left volver"></i> Volver</div>
         <div class="container">
-            <div class="img-container"><img class='portadaObra' src="../../../../assets/img/metamorfosisPortada.jpg" alt="Portada de la obra"></div>
+            <div class="img-container"><img class='portadaObra' src="{{portadaurl}}" alt="Portada de la obra"></div>
             <div class="datosObra-container">
                 <p class="titulo">{{titulolibro}}</p>
                 <ul style="width: 200px; height: 9rem; overflow: auto" class="lista-capitulos">
@@ -11,7 +11,7 @@
                       {{seccion.titulo? seccion.titulo :'Agrege un titulo'}}
                     </li>
                 </ul>
-                <button [hidden]="tipo!='2'" style="margin-top: .25rem;" (click)="newSection()" class="btn btn-danger">Agregar</button>
+                <button *ngIf="editable() === true" style="margin-top: .25rem;" (click)="newSection()" class="btn btn-danger">Agregar</button>
             </div>
         </div>
     </div>
@@ -32,10 +32,11 @@
 
         </div>
 
-        <textarea [readonly]="tipo!='2'" [value]="tituloCap" #titulo (keyup)="saveTitle(titulo.value)" class="area" placeholder="Titulo del capítulo." id="capitulo"></textarea>
+        <textarea [readonly]="editable() === false" [value]="tituloCap" #titulo (keyup)="saveTitle(titulo.value)" class="area" placeholder="Titulo del capítulo." id="capitulo"></textarea>
 
         <!-- <textarea [value]="contenidoarea" #contenido class="area" placeholder="Comienza tu historia." id="descripcion"></textarea> -->
-        <angular-editor  #content (keyup)="saveContent()" [config]="config"  [(ngModel)]="contenidoCap"></angular-editor>
+        <angular-editor *ngIf="editable() === true" #content (keyup)="saveContent()" [config]="configT"  [(ngModel)]="contenidoCap"></angular-editor>
+        <angular-editor *ngIf="editable() === false" #content (keyup)="saveContent()" [config]="configF"  [(ngModel)]="contenidoCap"></angular-editor>
       </div>
     <!--Fin de contenedor barra de herramientas y texto obra-->
 </div>

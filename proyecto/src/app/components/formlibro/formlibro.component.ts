@@ -51,10 +51,10 @@ export class FormlibroComponent implements OnInit {
     const libro = {
       'titulo': data.titulo,
       'sinopsis': data.sinopsis,
-      'genero': data.genero,
+      /*'genero': data.genero,*/
       'adulto': data.clasificacion==='Todo Público'? 0 : 1,
       'escritor': Number(localStorage.getItem('id_user')),
-      'exclusivo': data.exclusivo,
+      'exclusivo': data.exclusivo===true? 0 : 1,
       'anio_publicacion': (new Date()).getFullYear(),
 
 
@@ -71,7 +71,7 @@ export class FormlibroComponent implements OnInit {
         };
         console.log(seccion);
         this.seccionS.createSection(seccion).subscribe((data)=>console.log(data));
-        this.router.navigate(['/vistaEscritura', this.id]);
+        this.router.navigate(['/vistaescritura', this.id]);
       }
     });
 
