@@ -46,7 +46,7 @@ exports.getBibliotecasByUsuario = async (req, res) => {
       attributes: ['titulo', 'portada'],
       include: [{
         model: Usuario,
-        attributes: ['id', 'nombre', 'apellido']
+        attributes: ['id', 'nombre', 'apellido', 'foto']
       }]
     }]
   })

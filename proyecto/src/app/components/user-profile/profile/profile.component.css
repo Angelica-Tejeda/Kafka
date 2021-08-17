@@ -68,7 +68,7 @@
 }
 
 .nav {
-  background-color: #A05344;
+  background-color: #a05344;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -97,6 +97,5 @@
 }*/
 
 .active {
-
   background-color: #734046;
 }

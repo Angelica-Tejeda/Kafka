@@ -1,7 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {textChangeRangeIsUnchanged} from 'typescript';
-
-import {VistaEscrituraComponent} from './vista-escritura.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { textChangeRangeIsUnchanged } from 'typescript';
+import { VistaEscrituraComponent } from './vista-escritura.component';
 
 describe('VistaEscrituraComponent', () => {
   let component: VistaEscrituraComponent;
@@ -10,8 +9,7 @@ describe('VistaEscrituraComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [VistaEscrituraComponent],
-    })
-        .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

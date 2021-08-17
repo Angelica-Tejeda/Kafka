@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { VistaLecturaComponent } from './vista-lectura.component';
 
-describe('VistaLecturaComponent', () => {
-  let component: VistaLecturaComponent;
-  let fixture: ComponentFixture<VistaLecturaComponent>;
+import { BloqueadoComponent } from './bloqueado.component';
+
+describe('BloqueadoComponent', () => {
+  let component: BloqueadoComponent;
+  let fixture: ComponentFixture<BloqueadoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [VistaLecturaComponent],
+      declarations: [BloqueadoComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VistaLecturaComponent);
+    fixture = TestBed.createComponent(BloqueadoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

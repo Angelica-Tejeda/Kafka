@@ -1,5 +1,3 @@
 export class Genero {
-  constructor(public nombre: string, public id: number) {
-
-  }
+  constructor(public nombre: string, public id: number) {}
 }

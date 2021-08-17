@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-about-me',
@@ -6,20 +7,19 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./about-me.component.css'],
 })
 export class AboutMeComponent implements OnInit {
-  bio:any;
-  registerDate:any;
-  favGenres:any[] = []
+  bio: any;
+  registerDate: string = '';
+  tipoUser: any;
 
-  constructor() { }
+  constructor(private userS: UsuarioService) {}
 
   ngOnInit(): void {
-    this.getBioData(5);
-    this.registerDate = '15/04/2021';
-    this.favGenres = ['Terror', 'Suspenso', 'Policial', 'Drama'];
-  }
-
-  getBioData(id:any) {
-    this.bio = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus ipsum consequatur doloremque earum ipsam impedit veniam? Maxime neque reprehenderit quos accusamus molestias culpa! Asperiores aperiam debitis facilis inventore praesentium fugiat!';
+    this.userS.getUserInfo().subscribe((res) => {
+      this.bio = res.bio;
+      this.registerDate = res.fecha_creacion;
+      this.registerDate = this.registerDate.substr(0, 10);
+      this.tipoUser = res.rol;
+    })
   }
 
   editBio() {
@@ -29,7 +29,14 @@ export class AboutMeComponent implements OnInit {
   }
 
   saveBio() {
-    this.bio = $('#aboutMe-bio').text();
+    this.bio = $('#aboutMe-bio').val();
+    var data = {
+      'bio': this.bio
+    }
+    console.log(data);
+    this.userS.updateUserInfo(data).subscribe((res) => {
+      console.log(res);
+    });
     $('#aboutMe-bio').attr('disabled', '');
     $('#save-cancel-button').addClass('not-display');
     $('#edit-button').removeClass('not-display');

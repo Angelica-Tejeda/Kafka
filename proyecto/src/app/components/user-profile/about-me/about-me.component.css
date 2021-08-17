@@ -1,4 +1,3 @@
-
 .border-cont {
   border: 1px solid white;
   padding: 15px;
@@ -24,7 +23,7 @@
   margin-right: auto;
   text-align: justify;
   resize: none;
-  color: #F0EDE8;
+  color: #f0ede8;
   background-color: #121212;
   border: none;
 }

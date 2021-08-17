@@ -3,7 +3,7 @@
 body {
   background-color: #121212;
   font-family: "Montserrat", "Helvetica", Arial, sans-serif;
-  color: #F0EDE8;
+  color: #f0ede8;
 }
 
 ul,
@@ -18,7 +18,7 @@ li {
 }
 
 .pointer {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 /* You can add global styles to this file, and also import other style files */

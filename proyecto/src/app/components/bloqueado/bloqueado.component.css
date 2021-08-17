@@ -442,6 +442,12 @@ html {
   overflow: hidden;
 }
 
+p {
+  padding: 20px 0;
+  color: #a05344;
+  text-align: justify;
+}
+
 .materialContainer {
   width: 100%;
   max-width: 460px;

@@ -1,5 +1,3 @@
 export class Seccion {
-  constructor(public titulo: string, public content: string) {
-
-  }
+  constructor(public titulo: string, public content: string) {}
 }

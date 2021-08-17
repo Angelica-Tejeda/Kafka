@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import {Router} from '@angular/router';
-import {BibliotecaService} from 'src/app/services/biblioteca.service';
-import {LibroService} from 'src/app/services/libro.service';
+import { BibliotecaService } from 'src/app/services/biblioteca.service';
+import { LibroService } from 'src/app/services/libro.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,48 +10,45 @@ import {LibroService} from 'src/app/services/libro.service';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  librosBib:number = 0;
-  autoresBib:number = 0;
-  librosEscritos:number = 0;
+  librosBib: number = 0;
+  autoresBib: number = 0;
+  librosEscritos: number = 0;
   coleccion: any[] = [];
   escritos: any[] = [];
   autores: any[] = [];
-  usuario:any;
+  usuario: any;
 
-  constructor(private router: Router, private userS: UsuarioService, private bibS:BibliotecaService, private librosS:LibroService) { }
+  constructor(
+    private router: Router,
+    private userS: UsuarioService,
+    private bibS: BibliotecaService,
+    private librosS: LibroService
+  ) {}
 
   ngOnInit(): void {
     if (localStorage.getItem('token') == null) {
       this.router.navigate(['login']);
+    } else if (localStorage.getItem('activo') == '0') {
+      this.router.navigate(['bloqueado']);
     } else {
       this.getUserInfo();
-      this.bibS.getBibliotecas().subscribe((res:any)=>{
+      this.bibS.getBibliotecas().subscribe((res: any) => {
         if (res) {
           this.coleccion = res;
           this.librosBib = this.coleccion.length;
+          this.contarAutores();
         }
       });
-      this.librosS.getLibroByEscritor(Number(localStorage.getItem('id_user'))).subscribe((res:any)=>{
-        if (res) {
-          this.escritos = res;
-          this.librosEscritos = this.escritos.length;
-        }
-      });
-      //this.contarAutores();
+      this.librosS
+        .getLibroByEscritor(Number(localStorage.getItem('id_user')))
+        .subscribe((res: any) => {
+          if (res) {
+            this.escritos = res;
+            this.librosEscritos = this.escritos.length;
+          }
+        });
     }
   }
-  /** ESTA PARTE TIENE QUE SER MODIFICADA PARA QUE EL SERVICIO HAGA LA PETICION DE LOS DATOS DE USUARIO */
-  /*getUserData(id:any) {
-    this.profilePic='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/768px-Circle-icons-profile.svg.png';
-    this.username='Josue Cabezas';
-    this.onLibBooks=15;
-    this.readedBooks=12;
-    this.nFollowedAuthors=14;
-    this.nSuscribedAuthors=4;
-  }
-  hide() {
-
-  }*/
 
   showAboutMe() {
     $('#tab1').removeClass('not-display');
@@ -80,26 +77,18 @@ export class ProfileComponent implements OnInit {
     $('#nav-op-3').addClass('active');
   }
 
-  getUserInfo(){
-    this.userS.getUserInfo().subscribe((data)=>{
+  getUserInfo() {
+    this.userS.getUserInfo().subscribe((data) => {
       this.usuario = data;
-      console.log(this.usuario);
-    })
+    });
   }
 
-  contarAutores(){
-    /*this.coleccion.forEach((valor) => {
+  contarAutores() {
+    this.coleccion.forEach((valor) => {
       if (!this.autores.includes(valor.obra.usuario.id)) {
         this.autores.push(valor.obra.usuario.id);
       }
-      console.log(valor);
-    })*/
-    /*this.coleccion.forEach(function (valor) {
-      console.log(valor);
-    });*/
-    Object.keys(this.coleccion).forEach(function(key) {
-      console.log(key);
-  }); 
+      this.autoresBib = this.autores.length;
+    });
   }
-
 }

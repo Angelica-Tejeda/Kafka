@@ -1,6 +1,5 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-
-import {SubscriptionsComponent} from './subscriptions.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SubscriptionsComponent } from './subscriptions.component';
 
 describe('SubscriptionsComponent', () => {
   let component: SubscriptionsComponent;
@@ -9,8 +8,7 @@ describe('SubscriptionsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SubscriptionsComponent],
-    })
-        .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

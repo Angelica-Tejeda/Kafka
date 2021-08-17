@@ -82,7 +82,7 @@ Usuario.init(
       activo: {
         type: Sequelize.INTEGER(1),
         allowNull: false,
-        defaultValue: '0',
+        defaultValue: '1',
       },
       fecha_creacion: {
         type: Sequelize.DATE,

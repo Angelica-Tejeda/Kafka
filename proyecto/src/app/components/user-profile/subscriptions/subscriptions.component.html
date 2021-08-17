@@ -1,23 +1,11 @@
 <section>
-
-    <div>
-        <h3>Autores a los que estoy suscrito ({{suscribedAuthors.length}})</h3>
-        <div class="authors">
-            <div *ngFor="let sub of suscribedAuthors" class="author-info">
-                <img src="{{sub.pic}}" alt="{{sub.name}} picture" class="author-pic">
-                <p class="author-name">{{sub.name}}</p>
-            </div>
-        </div>
+  <div>
+    <h3>Autores que sigo ({{ autoresBib }})</h3>
+    <div class="authors">
+      <div *ngFor="let sub of autores" class="author-info">
+          <img src="{{ sub.foto }}" alt="{{ sub.name }} {{sub.apellido}} picture" class="author-pic" />
+        <p class="author-name">{{ sub.nombre }} {{sub.apellido}}</p>
+      </div>
     </div>
-
-    <div>
-        <h3>Autores a los que sigo ({{followedAuthors.length}})</h3>
-        <div class="authors">
-            <div *ngFor="let sub of followedAuthors" class="author-info">
-                <img src="{{sub.pic}}" alt="{{sub.name}} picture" class="author-pic">
-                <p class="author-name">{{sub.name}}</p>
-            </div>
-        </div>
-    </div>
-
+  </div>
 </section>

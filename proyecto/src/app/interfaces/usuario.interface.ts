@@ -1,4 +1,4 @@
 export interface Usuario {
-  id : number;
-  rol:number;
-   }
+  id: number;
+  rol: number;
+}

@@ -75,15 +75,38 @@ exports.getUsuariosByRol = async (req, res) => {
 };
 
 exports.updateUsuario = async (req, res) => {
-  const contrasena = bcrypt.hashSync(req.body.contrasena, 10);
   Usuario.update(
       {
+        nombre_usuario: req.body.nombre_usuario,
         correo: req.body.correo,
-        contrasena: contrasena,
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        fecha_nacimiento: req.body.fecha_nacimiento,
+        pais: req.body.pais,
         seudonimo: req.body.seudonimo,
         foto: req.body.foto,
         bio: req.body.bio,
         rol: req.body.rol,
+        activo: req.body.activo,
+      },
+      {
+        where: {id: req.params.id},
+      },
+  )
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        console.log('error: ' + err);
+        // res.json(err);
+      });
+};
+
+exports.updateContrasena = async (req, res) => {
+  const contrasena = bcrypt.hashSync(req.body.contrasena, 10);
+  Usuario.update(
+      {
+        contrasena: contrasena,
       },
       {
         where: {id: req.params.id},

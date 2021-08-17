@@ -32,7 +32,7 @@ exports.registrarUsuario = async (req, res) => {
 exports.iniciarSesion = async (req, res) => {
   Usuario.findOne({
     where: {correo: req.body.correo},
-    attributes: ['id', 'contrasena', 'rol'],
+    attributes: ['id', 'contrasena', 'rol', 'activo'],
     // attributes: { exclude: ["contrasena"] },
   })
       .then((usuario) => {
@@ -51,6 +51,7 @@ exports.iniciarSesion = async (req, res) => {
               usuario: {
                 id: usuario.id,
                 rol: usuario.rol,
+                activo: usuario.activo,
               },
               token: token,
             });

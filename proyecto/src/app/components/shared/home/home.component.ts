@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +7,13 @@ import {Router} from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     if (localStorage.getItem('token') == null) {
       this.router.navigate(['login']);
-    } else {
-      
-    }
+    } else if (localStorage.getItem('activo') == '0') {
+      this.router.navigate(['bloqueado']);
+    } 
   }
 }
